@@ -1,0 +1,209 @@
+@import '../styles/variables.scss';
+
+.wrapper {
+  background-color: #fff;
+  width: 100%;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+// --- PHẦN CONTENT (INFO + FORM) ---
+.contactSection {
+  padding: 80px 0;
+  background-color: #fff;
+}
+
+// Class mới để quản lý Grid chuẩn xác hơn
+.contentWrapper {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr; // Cột Form rộng gấp 1.5 lần cột Info
+  gap: 60px;
+  align-items: start; // Căn hàng đầu tiên bằng nhau
+
+  // Responsive: Trên mobile chuyển thành 1 cột
+  @include mobile {
+    grid-template-columns: 1fr;
+    gap: 50px;
+  }
+}
+
+// CỘT TRÁI: THÔNG TIN
+.infoCol {
+  h2 {
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: $primary-dark;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+  }
+
+  p {
+    color: #666;
+    margin-bottom: 40px;
+    line-height: 1.6;
+    font-size: 1rem;
+  }
+}
+
+.infoList {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.infoItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+
+  .iconBox {
+    width: 50px; height: 50px;
+    background-color: #fff5f5; // Nền đỏ rất nhạt
+    color: $primary-red;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    transition: all 0.3s;
+    border: 1px solid rgba(230, 0, 0, 0.1);
+    
+    svg {
+      width: 24px;
+      height: 24px;
+    }
+  }
+
+  &:hover .iconBox {
+    background-color: $primary-red;
+    color: #fff;
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(230, 0, 0, 0.3);
+  }
+
+  .details {
+    h4 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: $primary-dark;
+      margin-bottom: 5px;
+    }
+    span, a {
+      font-size: 0.95rem;
+      color: #666;
+      line-height: 1.5;
+      display: block;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    a:hover { color: $primary-red; }
+  }
+}
+
+// CỘT PHẢI: FORM
+.formCol {
+  background: #fff;
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.08); // Đổ bóng đậm hơn chút cho nổi
+  border: 1px solid #eee;
+
+  h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: $primary-dark;
+    margin-bottom: 30px;
+  }
+
+  @include mobile {
+    padding: 25px; // Mobile padding nhỏ hơn
+  }
+}
+
+.formGroup {
+  margin-bottom: 20px;
+
+  label {
+    display: block;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: $primary-dark;
+    margin-bottom: 8px;
+
+    span { color: $primary-red; }
+  }
+
+  input, textarea, select {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #e0e0e0;
+    border-radius: 6px;
+    font-size: 1rem;
+    transition: all 0.3s;
+    font-family: inherit;
+    color: #333;
+    background: #fdfdfd;
+
+    &:focus {
+      outline: none;
+      border-color: $primary-red;
+      background: #fff;
+      box-shadow: 0 0 0 4px rgba(230, 0, 0, 0.05);
+    }
+  }
+
+  textarea {
+    resize: vertical;
+    min-height: 120px;
+  }
+}
+
+// Group 2 cột trên 1 hàng (Email + SĐT)
+.rowGroup {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+
+  @include mobile {
+    grid-template-columns: 1fr; // Mobile rớt dòng
+  }
+}
+
+.submitBtn {
+  width: 100%;
+  padding: 15px;
+  background-color: $primary-red;
+  color: #fff;
+  font-weight: 700;
+  text-transform: uppercase;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.3s;
+  letter-spacing: 1px;
+  font-size: 1rem;
+
+  &:hover {
+    background-color: darken($primary-red, 10%);
+    box-shadow: 0 10px 20px rgba(230, 0, 0, 0.2);
+    transform: translateY(-2px);
+  }
+}
+
+// --- BẢN ĐỒ ---
+.mapSection {
+  width: 100%;
+  height: 450px;
+  margin-top: 0;
+  
+  iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    display: block; // Fix lỗi khoảng trắng dưới iframe
+  }
+}

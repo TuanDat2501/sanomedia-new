@@ -1,0 +1,199 @@
+@import '../../styles/variables';
+
+.wrapper {
+  background-color: #fff;
+  padding-bottom: 100px;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+// --- PHẦN 1: TRIẾT LÝ & NỀN TẢNG (THE FOUNDATION) ---
+.foundationSection {
+  padding: 80px 0;
+  text-align: center;
+  background-color: #f8f9fa; // Nền xám rất nhẹ kiểu Samsung
+}
+
+.manifesto {
+  max-width: 800px;
+  margin: 0 auto 60px;
+
+  h2 {
+    font-size: 2.2rem;
+    font-weight: 900;
+    color: $primary-dark;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    letter-spacing: 1px;
+  }
+
+  p {
+    font-size: 1.1rem;
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 30px;
+  }
+
+  .highlightQuote {
+    font-size: 1.5rem;
+    font-family: serif; // Font có chân tạo nét trang trọng cho câu quote
+    font-style: italic;
+    color: $primary-red;
+    position: relative;
+    display: inline-block;
+    padding: 0 20px;
+
+    &::before, &::after {
+      content: '“';
+      font-size: 3rem;
+      color: rgba(211, 0, 0, 0.1);
+      position: absolute;
+      top: -10px;
+    }
+    &::before { left: -10px; }
+    &::after { content: '”'; right: -10px; top: auto; bottom: -30px; }
+  }
+}
+
+// 3 Cột trụ phát triển con người
+.pillars3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  margin-top: 50px;
+
+  @include mobile { grid-template-columns: 1fr; }
+}
+
+.pillarItem {
+  background: #fff;
+  padding: 40px 20px;
+  border: 1px solid #eee;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+
+  // Hiệu ứng thanh đỏ chạy ngang khi hover
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 3px;
+    background: $primary-red;
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+  }
+
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    &::before { transform: scaleX(1); }
+    
+    .iconBox {
+      background-color: $primary-red;
+      color: #fff;
+      border-color: $primary-red;
+    }
+  }
+
+  .iconBox {
+    width: 70px; height: 70px;
+    border-radius: 50%;
+    border: 1px solid #ddd;
+    color: $primary-red;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px;
+    transition: all 0.3s;
+  }
+
+  h4 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: $primary-dark;
+    margin-bottom: 10px;
+  }
+
+  span { font-size: 0.95rem; color: #666; }
+}
+
+// --- PHẦN 2: 4 GIÁ TRỊ CỐT LÕI (THE 4 CORE VALUES) ---
+.valuesSection {
+  padding: 80px 0;
+}
+
+.sectionHeader {
+  margin-bottom: 50px;
+  border-left: 5px solid $primary-red;
+  padding-left: 20px;
+
+  h3 {
+    font-size: 2rem;
+    font-weight: 800;
+    color: $primary-dark;
+    text-transform: uppercase;
+  }
+  p { color: #666; margin-top: 5px; }
+}
+
+.valuesGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); // Chia 2 cột lớn
+  gap: 40px;
+
+  @include mobile { grid-template-columns: 1fr; }
+}
+
+.valueCard {
+  display: flex;
+  gap: 25px;
+  padding: 40px;
+  background: #fff;
+  border: 1px solid #e5e5e5;
+  transition: all 0.3s;
+
+  @include mobile {
+    flex-direction: column;
+    padding: 30px;
+  }
+
+  &:hover {
+    border-color: $primary-red;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.05);
+
+    .valueNum { color: rgba(211, 0, 0, 0.1); }
+    h4 { color: $primary-red; }
+  }
+
+  // Số nền chìm (01, 02...)
+  .valueNum {
+    font-size: 4rem;
+    font-weight: 900;
+    color: #f0f0f0;
+    line-height: 0.8;
+    transition: color 0.3s;
+    min-width: 80px;
+  }
+
+  .valueContent {
+    h4 {
+      font-size: 1.4rem;
+      font-weight: 800;
+      color: $primary-dark;
+      text-transform: uppercase;
+      margin-bottom: 15px;
+      transition: color 0.3s;
+    }
+
+    p {
+      font-size: 1rem;
+      color: #555;
+      line-height: 1.6;
+    }
+  }
+}

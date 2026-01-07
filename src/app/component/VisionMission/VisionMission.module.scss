@@ -1,0 +1,213 @@
+@import '../../styles/variables';
+
+.section {
+  padding: 100px 0;
+  background-color: $bg-light;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+// --- TAB HEADER (Giữ nguyên style cũ) ---
+.tabHeader {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-bottom: 50px;
+}
+
+.tabBtn {
+  padding: 15px 40px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border: 1px solid #d1d1d1;
+  background: #fff;
+  color: $text-gray;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  min-width: 220px;
+
+  &.active {
+    background-color: $primary-red;
+    color: #fff;
+    border-color: $primary-red;
+    box-shadow: 0 10px 25px rgba(211, 0, 0, 0.3);
+  }
+}
+
+// --- CONTENT AREA ---
+.tabContent {
+  animation: fadeUp 0.6s ease-out forwards;
+}
+
+// === STYLE CHO TAB 1: SỨ MỆNH & TẦM NHÌN ===
+.dualGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+
+  @include mobile {
+    grid-template-columns: 1fr;
+  }
+}
+
+.cardBox {
+  background: $bg-white;
+  padding: 50px 40px;
+  border-top: 5px solid transparent;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+  height: 100%; // Để 2 cột cao bằng nhau
+
+  // Màu sắc riêng
+  &.mission { border-top-color: $primary-red; }
+  &.vision { border-top-color: $primary-dark; }
+
+  h3 {
+    font-size: 2rem;
+    font-weight: 900;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    
+    // Màu chữ tiêu đề theo loại thẻ
+    &.textRed { color: $primary-red; }
+    &.textDark { color: $primary-dark; }
+  }
+
+  .slogan {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 25px;
+    font-style: italic;
+    line-height: 1.5;
+  }
+
+  ul {
+    list-style: none;
+    padding: 0;
+
+    li {
+      position: relative;
+      padding-left: 25px;
+      margin-bottom: 15px;
+      color: $text-gray;
+      line-height: 1.6;
+      font-size: 1rem;
+
+      // Bullet point custom
+      &::before {
+        content: '•';
+        color: $primary-red;
+        font-weight: bold;
+        font-size: 1.5rem;
+        position: absolute;
+        left: 0;
+        top: -5px;
+      }
+    }
+  }
+}
+
+// === STYLE CHO TAB 2: GIÁ TRỊ CỐT LÕI ===
+.coreValuesWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+// 4 Thẻ bài hàng ngang
+.pillarsGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+
+  @include mobile {
+    grid-template-columns: 1fr 1fr; // Mobile 2 cột
+  }
+}
+
+.pillarCard {
+  background: $bg-white;
+  padding: 30px 20px;
+  text-align: center;
+  border: 1px solid #eee;
+  transition: transform 0.3s;
+
+  &:hover {
+    transform: translateY(-5px);
+    border-color: $primary-red;
+    h4 { color: $primary-red; }
+  }
+
+  .icon {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+    display: block;
+  }
+
+  h4 {
+    font-size: 1.1rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    color: $primary-dark;
+    transition: color 0.3s;
+  }
+}
+
+// Khối triết lý (Philosophy) bên dưới
+.philosophyBox {
+  background: #fff;
+  padding: 40px;
+  border-left: 5px solid $primary-red; // Viền đỏ bên trái
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.03);
+
+  h4 {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: $primary-dark;
+  }
+
+  ul {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+    flex-wrap: wrap;
+
+    li {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 500;
+      color: #555;
+      
+      svg { color: $primary-red; }
+    }
+  }
+
+  .quote {
+    margin-top: 10px;
+    font-size: 1.4rem;
+    font-weight: 300;
+    color: $primary-red;
+    text-align: center;
+    font-style: italic;
+    border-top: 1px solid #eee;
+    padding-top: 20px;
+  }
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}

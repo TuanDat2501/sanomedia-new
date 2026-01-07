@@ -1,0 +1,18 @@
+// src/styles/_variables.scss
+
+// --- CẬP NHẬT FONT MỚI ---
+// Lưu ý: var(--font-be-vietnam) phải khớp với tên biến trong layout.tsx
+$font-main: var(--font-be-vietnam), sans-serif; 
+
+// Các biến màu sắc giữ nguyên
+$primary-red: #E60000;
+$primary-dark: #1a1a1a;
+$text-gray: #4a4a4a;
+$text-light: #888;
+$bg-white: #ffffff;
+$bg-light: #f4f6f8;
+$border-color: #e0e0e0;
+
+@mixin mobile {
+  @media (max-width: 768px) { @content; }
+}

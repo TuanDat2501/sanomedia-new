@@ -135,7 +135,7 @@
     transition: color 0.3s;
 
     // Hiệu ứng gạch chân chạy từ trái sang
-    &::after {
+    /* &::after {
       content: '';
       position: absolute;
       bottom: 0;
@@ -144,7 +144,7 @@
       height: 2px;
       background-color: $primary-red;
       transition: width 0.3s ease;
-    }
+    } */
 
     &:hover, &.active {
       color: $primary-red;
@@ -243,5 +243,145 @@
   &.open {
     opacity: 1;
     visibility: visible;
+  }
+}
+.navDesktop {
+  display: flex;
+  gap: 40px;
+  height: 100%; // Đảm bảo chiều cao để hover không bị đứt quãng
+  align-items: center;
+
+  @include mobile { display: none; }
+}
+
+// Item cha trong menu
+.navItem {
+  position: relative; // Quan trọng để định vị dropdown
+  height: 100%;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+
+  // Link chính
+  & > a, & > span {
+    text-decoration: none;
+    color: $primary-dark;
+    font-weight: 600;
+    font-size: 0.95rem;
+    text-transform: uppercase;
+    padding: 10px 0;
+    transition: color 0.3s;
+    display: flex;
+    align-items: center;
+    gap: 5px; // Khoảng cách giữa chữ và icon mũi tên
+
+    &:hover { color: $primary-red; }
+  }
+
+  // Hiệu ứng gạch chân (chỉ áp dụng cho link chính, không áp dụng cho dropdown)
+  & > a::after, & > span::after {
+    content: '';
+    position: absolute;
+    bottom: 0; // Căn chỉnh lại tùy chiều cao header
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: $primary-red;
+    transition: width 0.3s ease;
+  }
+
+  &:hover > a::after, &:hover > span::after {
+    width: 100%;
+  }
+
+  // --- DROPDOWN MENU (Desktop) ---
+  &:hover .dropdownMenu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+}
+
+.dropdownMenu {
+  position: absolute;
+  top: 100%; // Nằm ngay dưới item cha
+  left: -20px; // Căn chỉnh sang trái một chút cho đẹp
+  background-color: #fff;
+  min-width: 250px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1); // Bóng đổ sang trọng
+  border-top: 3px solid $primary-red; // Viền đỏ trên cùng tạo điểm nhấn
+  padding: 10px 0;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px); // Hiệu ứng trượt lên
+  transition: all 0.3s ease;
+  z-index: 100;
+  border-radius: 0 0 4px 4px;
+
+  // Item con trong dropdown
+  a {
+    display: block;
+    padding: 12px 25px;
+    color: $text-gray;
+    font-size: 0.9rem;
+    font-weight: 500;
+    text-transform: none; // Chữ thường cho dễ đọc
+    text-decoration: none;
+    transition: all 0.2s;
+    border-bottom: 1px dashed #eee;
+
+    &:last-child { border-bottom: none; }
+
+    &:hover {
+      background-color: #f9f9f9;
+      color: $primary-red;
+      padding-left: 30px; // Hiệu ứng dịch sang phải khi hover
+    }
+  }
+}
+
+// --- MOBILE MENU UPDATE ---
+.mobileMenuOverlay {
+  // ... (giữ nguyên code cũ) ...
+
+  // Style cho item mobile
+  .mobileNavItem {
+    display: flex;
+    flex-direction: column;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 15px;
+
+    // Link cha
+    & > .mobileLink {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: $primary-dark;
+      text-decoration: none;
+      text-transform: uppercase;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    // Dropdown con trong mobile
+    .mobileSubMenu {
+      margin-top: 15px;
+      padding-left: 20px; // Thụt đầu dòng
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      border-left: 2px solid $border-color;
+
+      a {
+        font-size: 1rem;
+        font-weight: 500;
+        color: #666;
+        text-transform: none;
+        border: none;
+        padding: 0;
+        
+        &:hover { color: $primary-red; }
+      }
+    }
   }
 }

@@ -1,0 +1,170 @@
+@import '../../styles/variables';
+
+.footer {
+  background-color: #ffffff; // Chuyển sang NỀN TRẮNG
+  color: $text-gray;         // Chữ chuyển sang màu xám đậm
+  font-size: 0.95rem;
+  position: relative;
+  border-top: 1px solid #eaeaea; // Đường viền nhẹ ngăn cách
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 80px 20px 40px;
+}
+
+// --- GRID LAYOUT ---
+.grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1.5fr;
+  gap: 50px;
+  margin-bottom: 60px;
+
+  @include mobile {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+}
+
+// Cột 1: Thương hiệu
+.brandCol {
+  padding-right: 20px;
+
+  .logo {
+    display: block;
+    font-size: 1.8rem;
+    font-weight: 900;
+    color: $primary-red; // Logo đỏ tươi nổi bật trên nền trắng
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 20px;
+    text-decoration: none;
+  }
+
+  .description {
+    color: #666;
+    line-height: 1.7;
+    margin-bottom: 25px;
+  }
+
+  .socials {
+    display: flex;
+    gap: 12px;
+
+    a {
+      width: 40px; height: 40px;
+      border: 1px solid #eee; // Viền nhẹ thay vì nền tối
+      background: #f9f9f9;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      color: $primary-dark;
+      transition: all 0.3s;
+
+      &:hover {
+        background: $primary-red;
+        border-color: $primary-red;
+        color: #fff; // Hover vào thì đỏ rực
+        transform: translateY(-3px);
+        box-shadow: 0 5px 15px rgba(230, 0, 0, 0.2); // Bóng đổ đỏ nhạt
+      }
+    }
+  }
+}
+
+// Các cột Link
+.col {
+  h4 {
+    font-size: 1rem;
+    font-weight: 800;
+    color: $primary-dark; // Tiêu đề màu đen
+    text-transform: uppercase;
+    margin-bottom: 25px;
+    letter-spacing: 0.5px;
+  }
+
+  ul {
+    list-style: none;
+    padding: 0;
+
+    li {
+      margin-bottom: 12px;
+
+      a {
+        color: #666;
+        text-decoration: none;
+        transition: all 0.2s;
+        font-weight: 500;
+
+        &:hover {
+          color: $primary-red; // Hover đỏ tươi
+          padding-left: 5px;
+        }
+      }
+    }
+  }
+}
+
+// Cột Liên hệ
+.contactList {
+  li {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    color: #666;
+    line-height: 1.5;
+    margin-bottom: 18px !important;
+
+    // Icon được bọc trong vòng tròn đỏ nhạt để tạo điểm nhấn sáng
+    .iconBox {
+      flex-shrink: 0;
+      width: 32px; height: 32px;
+      background-color: rgba(230, 0, 0, 0.08); // Đỏ rất nhạt
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: $primary-red;
+      margin-top: -5px;
+    }
+  }
+}
+
+// --- BOTTOM BAR ---
+.bottomBar {
+  background-color: #f9f9f9; // Nền xám rất nhẹ phân biệt với phần trên
+  padding: 20px 0;
+  border-top: 1px solid #eee;
+  
+  .bottomContainer {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #888;
+    font-size: 0.85rem;
+
+    @include mobile {
+      flex-direction: column;
+      gap: 10px;
+      text-align: center;
+    }
+  }
+
+  .policyLinks {
+    display: flex;
+    gap: 25px;
+
+    a {
+      color: #888;
+      text-decoration: none;
+      transition: color 0.2s;
+      
+      &:hover { color: $primary-red; }
+    }
+  }
+}

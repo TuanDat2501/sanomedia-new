@@ -1,0 +1,73 @@
+@import '../../styles/variables';
+
+.section {
+  padding: 100px 0;
+  background-color: $bg-white;
+}
+
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: grid;
+  grid-template-columns: 1fr 1fr; // Chia 2 cột
+  gap: 60px;
+  align-items: center;
+
+  @include mobile {
+    grid-template-columns: 1fr; // Mobile 1 cột
+    gap: 40px;
+  }
+}
+
+.textCol {
+  h2 {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: $primary-dark;
+    margin-bottom: 30px;
+    position: relative;
+
+    // Gạch chân đỏ nhỏ
+    &::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: -10px;
+      width: 60px;
+      height: 4px;
+      background-color: $primary-red;
+    }
+  }
+
+  p {
+    font-size: 1rem;
+    color: $text-gray;
+    line-height: 1.8;
+    margin-bottom: 20px;
+    text-align: justify;
+  }
+}
+
+.imageCol {
+  position: relative;
+  
+  img {
+    width: 100%;
+    height: auto;
+    display: block;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.1); // Đổ bóng sang trọng
+  }
+
+  // Khung viền trang trí kiểu VinGroup
+  &::before {
+    content: '';
+    position: absolute;
+    top: -20px;
+    right: -20px;
+    width: 100%;
+    height: 100%;
+    border: 2px solid $primary-red;
+    z-index: -1;
+  }
+}

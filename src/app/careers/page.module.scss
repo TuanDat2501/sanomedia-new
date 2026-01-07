@@ -1,0 +1,246 @@
+@import '../styles/variables.scss';
+
+.wrapper {
+  background-color: #fff;
+  padding-bottom: 100px;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+// --- PHẦN 1: QUYỀN LỢI (WHY JOIN US) ---
+.benefitsSection {
+  padding: 80px 0;
+  text-align: center;
+}
+
+.sectionTitle {
+  font-size: 2.2rem;
+  font-weight: 900;
+  color: $primary-dark;
+  text-transform: uppercase;
+  margin-bottom: 15px;
+}
+
+.sectionDesc {
+  color: #666;
+  max-width: 700px;
+  margin: 0 auto 60px;
+  line-height: 1.6;
+}
+
+.benefitsGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+
+  @include mobile { grid-template-columns: 1fr; }
+}
+
+.benefitCard {
+  background: #fff;
+  padding: 40px 25px;
+  border: 1px solid #eee;
+  border-radius: 8px;
+  transition: all 0.3s;
+  
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.08);
+    border-color: rgba(230, 0, 0, 0.2);
+
+    .icon {
+      background-color: $primary-red;
+      color: #fff;
+    }
+  }
+
+  .icon {
+    width: 60px; height: 60px;
+    background-color: rgba(230, 0, 0, 0.08); // Đỏ nhạt
+    color: $primary-red;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px;
+    transition: all 0.3s;
+  }
+
+  h4 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: $primary-dark;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+  }
+
+  p { font-size: 0.95rem; color: #666; line-height: 1.5; }
+}
+
+// --- PHẦN 2: QUY TRÌNH (PROCESS) ---
+.processSection {
+  background-color: $bg-light; // Nền xám
+  padding: 80px 0;
+}
+
+.stepsWrapper {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 50px;
+  position: relative;
+
+  @include mobile {
+    flex-direction: column;
+    gap: 40px;
+  }
+
+  // Đường kẻ nối các bước (chỉ hiện trên desktop)
+  &::before {
+    content: '';
+    position: absolute;
+    top: 40px; left: 10%; right: 10%;
+    height: 2px;
+    background: #ddd;
+    z-index: 0;
+
+    @include mobile { display: none; }
+  }
+}
+
+.stepItem {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  flex: 1;
+
+  .stepNum {
+    width: 80px; height: 80px;
+    background: #fff;
+    border: 2px solid $primary-red;
+    color: $primary-red;
+    border-radius: 50%;
+    font-size: 1.8rem;
+    font-weight: 900;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px;
+    box-shadow: 0 0 0 10px $bg-light; // Tạo khoảng trắng giả quanh vòng tròn
+  }
+
+  h5 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: $primary-dark;
+    margin-bottom: 5px;
+  }
+  
+  span { font-size: 0.9rem; color: #666; }
+}
+
+// --- PHẦN 3: DANH SÁCH VIỆC LÀM (JOBS) ---
+.jobsSection {
+  padding: 80px 0;
+}
+
+.jobsList {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.jobItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #fff;
+  border: 1px solid #eee;
+  padding: 30px;
+  border-radius: 8px;
+  transition: all 0.3s;
+  cursor: pointer;
+
+  @include mobile {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+  }
+
+  &:hover {
+    border-color: $primary-red;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+    transform: translateX(5px);
+  }
+
+  .jobInfo {
+    h3 {
+      font-size: 1.4rem;
+      font-weight: 800;
+      color: $primary-dark;
+      margin-bottom: 10px;
+    }
+
+    .meta {
+      display: flex;
+      gap: 20px;
+      font-size: 0.9rem;
+      color: #666;
+      
+      span {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+      }
+    }
+  }
+
+  .jobAction {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 10px;
+
+    @include mobile {
+      align-items: flex-start;
+      width: 100%;
+    }
+
+    .salary {
+      font-weight: 700;
+      color: $primary-red;
+      font-size: 1.1rem;
+    }
+
+    .applyBtn {
+      padding: 10px 25px;
+      background: $primary-dark;
+      color: #fff;
+      font-weight: 600;
+      border-radius: 4px;
+      text-transform: uppercase;
+      font-size: 0.85rem;
+      transition: background 0.3s;
+
+      &:hover {
+        background: $primary-red;
+      }
+    }
+  }
+}
+
+// Tag loại công việc (Full-time)
+.tag {
+  background: #f0f0f0;
+  padding: 4px 10px;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: #555;
+}

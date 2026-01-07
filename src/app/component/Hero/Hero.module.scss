@@ -1,0 +1,117 @@
+@import '../../styles/variables';
+
+.hero {
+  position: relative;
+  height: 90vh; // Chiếm 90% chiều cao màn hình
+  display: flex;
+  align-items: center;
+  background-color: $bg-light;
+  overflow: hidden;
+
+  // Giả lập Background Image (Bạn thay url ảnh thật vào đây)
+  background-image: url('https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80'); 
+  background-size: cover;
+  background-position: center;
+  
+  // Lớp phủ màu trắng mờ để chữ dễ đọc (Style Samsung)
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: linear-gradient(90deg, rgba(255,255,255,0.95) 30%, rgba(255,255,255,0.4) 100%);
+    z-index: 1;
+    
+    @include mobile {
+      background: rgba(255,255,255,0.85);
+    }
+  }
+}
+
+.container {
+  position: relative;
+  z-index: 2;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 20px;
+  width: 100%;
+}
+
+.content {
+  max-width: 650px; // Giới hạn chiều rộng nội dung để trông gọn
+}
+
+.label {
+  display: inline-block;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: $primary-red;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  margin-bottom: 20px;
+  border-left: 3px solid $primary-red;
+  padding-left: 15px;
+}
+
+.title {
+  font-size: 4rem;
+  font-weight: 300; // Font mỏng sang trọng
+  color: $primary-dark;
+  line-height: 1.2;
+  margin-bottom: 30px;
+
+  strong {
+    font-weight: 900;
+    display: block; // Xuống dòng phần nhấn mạnh
+  }
+
+  @include mobile {
+    font-size: 2.5rem;
+  }
+}
+
+.description {
+  font-size: 1.1rem;
+  color: $text-gray;
+  line-height: 1.6;
+  margin-bottom: 40px;
+  font-weight: 400;
+}
+
+.btnGroup {
+  display: flex;
+  gap: 20px;
+}
+
+.btnPrimary {
+  padding: 15px 40px;
+  background-color: $primary-red;
+  color: #fff;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s;
+
+  &:hover {
+    background-color: darken($primary-red, 10%);
+    transform: translateY(-2px);
+  }
+}
+
+.btnOutline {
+  padding: 15px 40px;
+  background-color: transparent;
+  color: $primary-dark;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border: 1px solid $primary-dark;
+  cursor: pointer;
+  transition: all 0.3s;
+
+  &:hover {
+    background-color: $primary-dark;
+    color: #fff;
+  }
+}

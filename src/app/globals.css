@@ -2,34 +2,37 @@
 @tailwind components;
 @tailwind utilities;
 
+/* src/app/globals.css */
+
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-  --color-red: #FF5454;
-  --color-red-1: #770000;
-  --background-1: rgba(217, 217, 217, 0.35);
-  --color-border-1: #eae4e8;
+  /* Khai báo màu CSS native nếu cần dùng với Tailwind (Optional) */
+  --primary-red: #E60000;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
 }
-html{
-  overflow-x: hidden;
-}
+
+html,
 body {
-  color: rgb(var(--foreground-rgb));
-  background: white;
-  font-size: 14px;
-  width: 100vw;
+  max-width: 100vw;
   overflow-x: hidden;
-  font-family: 'Inter';
-  height: auto;
+  /* Quan trọng: Áp dụng font cho toàn bộ body */
+  font-family: var(--font-be-vietnam), sans-serif !important;
+  background-color: #fff;
+  color: #333;
+}
+
+/* Đảm bảo các thẻ form cũng nhận font này */
+input, button, textarea, select {
+  font-family: inherit;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
 }
 h1{
   font-style: normal;
@@ -53,7 +56,7 @@ p{
   line-height: 19px;
   color: #606060;
 
-  text-align: justify;
+  /* text-align: justify; */
 }
 li{
   font-style: normal;

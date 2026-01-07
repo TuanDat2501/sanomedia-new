@@ -1,74 +1,87 @@
-'use client'
-import React, {useEffect, useState} from 'react';
-import './style.scss';
-import IPhone from "@/icon/IPhone";
-import IEmail from "@/icon/IEmail";
-import IAddress from "@/icon/IAddress";
-import IFacebook from "@/icon/IFacebook";
-import IYoutube from "@/icon/IYoutube";
-import Image from "next/image";
-import {usePathname, useRouter} from "next/navigation";
-import { SDT } from '@/constant/const';
+import React from 'react';
+import Link from 'next/link';
+import styles from './Footer.module.scss';
+import { Facebook, Youtube, Linkedin, MapPin, Phone, Mail, Globe } from 'lucide-react';
+
 const Footer = () => {
-    const sdt = SDT;
-    const router = useRouter();
-    const pathname = usePathname()
-    const [isBlog, setIsBlog] = useState<boolean|undefined>()
-    useEffect(() => {
-        setIsBlog(pathname.includes('blog'));
-    }, [pathname]);
-    return (
-        <div className="footer">
-            <div className="wrapper-footer">
-            <div className="menu">
-                <div className="logo">
-                    <Image width={100} height={100} quality={100} src="https://firebasestorage.googleapis.com/v0/b/sanomedia-4959a.appspot.com/o/logo.png?alt=media&token=1748ce5e-2cbc-4942-8657-7c9ba87abd09" alt="logo"/>
-                </div>
-                <div className="links-menu">
-                    <a onClick={()=>router.push('/tuyen-dung')}>Tuyển dụng</a>
-                    <a onClick={()=>router.push('/gioi-thieu')}>Giới thiệu</a>
-                    <a onClick={()=>router.push('/sano-life')}>Sano life</a>
-                </div>
+  return (
+    <footer className={styles.footer}>
+      <div className={styles.container}>
+        <div className={styles.grid}>
+          
+          {/* CỘT 1 */}
+          <div className={styles.brandCol}>
+            <Link href="/" className={styles.logo}>SANO MEDIA</Link>
+            <p className={styles.description}>
+              Doanh nghiệp sản xuất sáng tạo nội dung YouTube hàng đầu. 
+              Kiến tạo giá trị số bền vững & môi trường làm việc hạnh phúc.
+            </p>
+            <div className={styles.socials}>
+              <a href="#"><Facebook size={18} /></a>
+              <a href="#"><Youtube size={18} /></a>
+              <a href="#"><Linkedin size={18} /></a>
             </div>
-            <div className="contact">
-                <div className="title-contact" >
-                    <h2 className="cursor-pointer" onClick={()=>router.push('/lien-he')}>Liên hệ</h2>
-                    <div className="line-white"></div>
-                </div>
-                <div className="contacts">
-                    <div className="phone item-contacts">
-                        <IPhone width={20} height={20}></IPhone>
-                        <text>{SDT}</text>
-                    </div>
-                    <div className="email item-contacts">
-                        <IEmail width={20} height={20}></IEmail>
-                        <text>sanomediavn@gmail.com</text>
-                    </div>
-                    <div className="address item-contacts">
-                        <IAddress width={20} height={20}></IAddress>
-                        <text>Tầng 9, Tòa nhà Việt Thắng, Hoàng Văn Thụ, Bắc Giang.</text>
-                    </div>
-                </div>
-            </div>
-            <div className="fanpage">
-                <iframe
-                    src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fsanomediavn&tabs=timeline&width=340&height=70&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId"
-                    width="340" height="auto" style={{border: 'none', overflow: 'hidden'}} scrolling="no" frameBorder="0"
-                    allowFullScreen
-                    allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
-                ></iframe>
-                <div className="media">
-                    <button className="btn-media btn-facebook">
-                        <a href={"https://www.facebook.com/sanomediavn" } target="_blank" rel="noopener noreferrer"><IFacebook width={20} height={20}/></a>
-                    </button>
-                    <button className="btn-media btn-youtube">
-                        <a href={"https://www.youtube.com/@sanomediavn" } target="_blank" rel="noopener noreferrer"><IYoutube width={30} height={30}/></a>
-                    </button>
-                </div>
-            </div>
-            </div>
+          </div>
+
+          {/* CỘT 2 */}
+          <div className={styles.col}>
+            <h4>Về Sano</h4>
+            <ul>
+              <li><Link href="/about/vision-mission">Tầm nhìn & Sứ mệnh</Link></li>
+              <li><Link href="/about/core-values">Giá trị cốt lõi</Link></li>
+              <li><Link href="/careers">Tuyển dụng</Link></li>
+              <li><Link href="/sano-life">Văn hóa Sano</Link></li>
+            </ul>
+          </div>
+
+          {/* CỘT 3 */}
+          <div className={styles.col}>
+            {/* <h4>Hệ sinh thái</h4>
+            <ul>
+              <li><Link href="#">Sản xuất Video</Link></li>
+              <li><Link href="#">Đào tạo Youtube</Link></li>
+              <li><Link href="#">Hợp tác Creator</Link></li>
+              <li><Link href="#">Tin tức & Sự kiện</Link></li>
+            </ul> */}
+          </div>
+
+          {/* CỘT 4 - LIÊN HỆ (Cập nhật Icon Box) */}
+          <div className={`${styles.col} ${styles.contactCol}`}>
+            <h4>Liên hệ</h4>
+            <ul className={styles.contactList}>
+              <li>
+                <div className={styles.iconBox}><MapPin size={16} /></div>
+                <a href="https://www.google.com/maps/place/C%C3%B4ng+Ty+TNHH+Sano+Media+Vi%E1%BB%87t+Nam/@21.2827528,106.2091628,17z/data=!3m1!4b1!4m6!3m5!1s0x31356da658a4a00b:0x8f52c7ea845700f1!8m2!3d21.2827528!4d106.2091628!16s%2Fg%2F11rk0bk_dw?entry=ttu&g_ep=EgoyMDI1MTIwOS4wIKXMDSoASAFQAw%3D%3D">Tầng 9, Tòa nhà Việt Thắng, Hoàng Văn Thụ, Bắc Giang</a>
+              </li>
+              <li>
+                <div className={styles.iconBox}><Phone size={16} /></div>
+                <span>0522 214 201</span>
+              </li>
+              <li>
+                <div className={styles.iconBox}><Mail size={16} /></div>
+                <span>sanomediavn@gmail.com</span>
+              </li>
+              <li>
+                <div className={styles.iconBox}><Globe size={16} /></div>
+                <span>www.sanonetworkvn.com</span>
+              </li>
+            </ul>
+          </div>
+
         </div>
-    );
+      </div>
+
+      <div className={styles.bottomBar}>
+        <div className={styles.bottomContainer}>
+          <p>© 2024 Sano Media Việt Nam. All rights reserved.</p>
+          <div className={styles.policyLinks}>
+            <Link href="#">Điều khoản</Link>
+            <Link href="#">Bảo mật</Link>
+          </div>
+        </div>
+      </div>
+    </footer>
+  );
 };
 
 export default Footer;

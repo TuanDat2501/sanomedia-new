@@ -1,0 +1,103 @@
+/* --- KHAI BÁO BIẾN (Chỉnh màu tại đây) --- */
+$brand-red: #D30000;       // Đỏ doanh nghiệp
+$brand-dark: #222222;      // Đen xám (Text chính)
+$text-gray: #666666;       // Xám (Text phụ)
+$border-color: #e5e5e5;    // Màu đường kẻ
+$bg-white: #ffffff;
+
+.section {
+  padding: 80px 0;
+  background-color: $bg-white;
+  font-family: 'Roboto', sans-serif; // Đảm bảo đã import font này ở layout
+}
+
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* GRID LAYOUT: Giả lập bảng báo cáo tài chính */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); // Mặc định 4 cột
+  border-top: 1px solid $border-color;
+  border-bottom: 1px solid $border-color;
+
+  // Responsive: Mobile xuống 2 cột
+  @media (max-width: 768px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.statItem {
+  position: relative;
+  padding: 50px 20px;
+  text-align: center;
+  border-right: 1px solid $border-color;
+  cursor: default;
+  transition: background-color 0.3s ease;
+
+  // Xử lý border:
+  // Desktop: Bỏ border phải của phần tử cuối cùng (cột 4)
+  &:last-child {
+    border-right: none;
+  }
+
+  // Mobile: Bỏ border phải của phần tử chẵn (cột 2)
+  @media (max-width: 768px) {
+    &:nth-child(2n) {
+      border-right: none;
+    }
+    // Mobile: Các dòng dưới cùng không cần border bottom (nếu grid có gap)
+    // Nhưng ở đây ta dùng border bao quanh nên ok.
+  }
+
+  // Hover Effect: Gạch đỏ chạy dưới chân
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 4px;
+    background-color: $brand-red;
+    transition: width 0.3s ease-out;
+  }
+
+  &:hover {
+    &::after {
+      width: 100%; // Kéo dài full ô
+    }
+  }
+}
+
+.number {
+  display: block;
+  font-size: 3.5rem; // Số to, rõ ràng
+  font-weight: 700;
+  color: $brand-red;
+  line-height: 1;
+  margin-bottom: 15px;
+
+  @media (max-width: 768px) {
+    font-size: 2.5rem;
+  }
+}
+
+.label {
+  display: block;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: $brand-dark;
+  text-transform: uppercase;
+  letter-spacing: 2px; // Dãn chữ tạo độ sang
+  margin-bottom: 8px;
+}
+
+.desc {
+  font-size: 0.85rem;
+  font-weight: 300; // Nét mảnh
+  color: $text-gray;
+}

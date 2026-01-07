@@ -1,0 +1,103 @@
+@import '../../styles/variables';
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 80px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 100px; // Khoảng cách giữa 2 khối lớn
+}
+
+.section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+
+  @include mobile {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  // Class đảo chiều cho khối Tầm nhìn
+  &.reverse {
+    direction: rtl; // Đảo chiều layout
+    .textCol { direction: ltr; } // Trả lại chiều văn bản
+    
+    @include mobile { direction: ltr; } // Mobile thì cứ xếp dọc bình thường
+  }
+}
+
+.imgWrapper {
+  position: relative;
+  
+  img {
+    border-radius: 8px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+    width: 100%;
+    height: auto;
+  }
+
+  // Viền trang trí
+  &::before {
+    content: '';
+    position: absolute;
+    top: 20px; left: 20px;
+    width: 100%; height: 100%;
+    border: 2px solid $primary-red;
+    z-index: -1;
+    border-radius: 8px;
+  }
+}
+
+.textCol {
+  h2 {
+    font-size: 2.5rem;
+    font-weight: 900;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    text-transform: uppercase;
+  }
+  
+  .headingRed { color: $primary-red; }
+  .headingDark { color: $primary-dark; }
+  
+  .slogan {
+    font-size: 1.4rem;
+    font-weight: 300;
+    font-style: italic;
+    color: #555;
+    margin-bottom: 30px;
+    border-left: 4px solid #eee;
+    padding-left: 20px;
+    line-height: 1.5;
+  }
+
+  .content {
+    font-size: 1.05rem;
+    color: $text-gray;
+    line-height: 1.8;
+
+    ul {
+      list-style: none;
+      margin-top: 15px;
+
+      li {
+        position: relative;
+        padding-left: 30px;
+        margin-bottom: 15px;
+
+        &::before {
+          content: '✓'; // Dấu check
+          position: absolute;
+          left: 0;
+          color: $primary-red;
+          font-weight: bold;
+        }
+      }
+    }
+  }
+}
