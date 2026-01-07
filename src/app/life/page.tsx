@@ -121,7 +121,7 @@ export default function SanoLifePage() {
       <section className={styles.principlesSection}>
         <div className={styles.container}>
           <div className={styles.principlesHeader}>
-            <h2>Các nguyên tắc bất di bất dịch</h2>
+            <h2>Các Quy Tắc Hoạt Động Bất Di Bất Dịch</h2>
             <p>Kỷ luật là sức mạnh - Văn hóa là sự sống còn</p>
           </div>
 
