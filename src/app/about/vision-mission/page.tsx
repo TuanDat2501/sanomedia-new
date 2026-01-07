@@ -48,6 +48,7 @@ export default function VisionMissionPage() {
                 Xây dựng một <strong>"Hệ sinh thái cùng phát triển - Cùng WIN"</strong>.
               </p>
               <ul>
+                <li><span className={styles.dot}></span> Trở thành tập đoàn MMO đa ngành</li>
                 <li><span className={styles.dot}></span> Đổi mới mô hình nội dung và công nghệ sản xuất</li>
                 <li><span className={styles.dot}></span> Mở rộng sang nhiều lĩnh vực MMO khác nhau</li>
                 <li><span className={styles.dot}></span> Trao cơ hội làm chủ cho nhân sự có khát vọng</li>
