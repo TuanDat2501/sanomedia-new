@@ -123,7 +123,7 @@ export default function ContactPage() {
       {/* --- BẢN ĐỒ --- */}
       <section className={styles.mapSection}>
         {/* Link iframe Google Maps thực tế trỏ về TP Bắc Giang */}
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3717.714831629714!2d106.20658787610138!3d21.28275278043101!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31356da658a4a00b%3A0x8f52c7ea845700f1!2sC%C3%B4ng%20Ty%20TNHH%20Sano%20Media%20Vi%E1%BB%87t%20Nam!5e0!3m2!1sen!2s!4v1767775243645!5m2!1sen!2s" width="600" height="450" style={{ border: 0 }} allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3717.714831629714!2d106.20658787610138!3d21.28275278043101!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31356da658a4a00b%3A0x8f52c7ea845700f1!2sC%C3%B4ng%20Ty%20TNHH%20Sano%20Media%20Vi%E1%BB%87t%20Nam!5e0!3m2!1sen!2s!4v1767775243645!5m2!1sen!2s" width="600" height="450" style={{ border: 0 }}></iframe>
       </section>
 
     </main>
