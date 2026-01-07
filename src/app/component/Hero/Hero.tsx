@@ -9,12 +9,12 @@ const Hero = () => {
         <div className={styles.content}>
           <span className={styles.label}>Sano Media Việt Nam</span>
           <h1 className={styles.title}>
-            Đối tác chiến lược <br />
-            <strong>NỘI DUNG SỐ</strong>
+            <span style={{fontSize:"3rem"}}>Chào mừng bạn đã đến</span>
+            <br />
+            <strong>SANO MEDIA</strong>
           </h1>
           <p className={styles.description}>
-            Chúng tôi kiến tạo những giá trị bền vững trên nền tảng YouTube, 
-            giúp thương hiệu và nhà sáng tạo nội dung bứt phá giới hạn.
+            Sano Media là doanh nghiệp sản xuất sáng tạo Youtube số 1 tại Bắc Giang. Chúng tôi cung cấp các giải pháp toàn diện về nội dung số, giúp doanh nghiệp phát triển thương hiệu và tăng trưởng kinh doanh thông qua nền tảng Youtube.
           </p>
           
           <div className={styles.btnGroup}>

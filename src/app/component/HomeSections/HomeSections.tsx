@@ -168,7 +168,7 @@ const HomeSections = () => {
       </section> */}
 
       {/* === PHẦN 4: CTA === */}
-      <section className={styles.ctaSection}>
+      {/* <section className={styles.ctaSection}>
         <div className={styles.container}>
           <h2>Sẵn sàng bứt phá cùng Sano Media?</h2>
           <p>Kết nối ngay hôm nay để nhận tư vấn chiến lược nội dung miễn phí.</p>
@@ -176,7 +176,7 @@ const HomeSections = () => {
             <button>Liên hệ hợp tác</button>
           </Link>
         </div>
-      </section>
+      </section> */}
     </>
   );
 };
