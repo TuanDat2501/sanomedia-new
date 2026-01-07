@@ -106,6 +106,7 @@ export default function AboutPage() {
               <div key={index} className={styles.teamCard}>
                 <div className={styles.imgWrapper}>
                   <Image 
+                  quality={70}
                     src={leader.img} 
                     alt={leader.name} 
                     width={300} height={400}
