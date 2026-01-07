@@ -1,80 +1,143 @@
-import React from 'react';
+"use client";
 
-import styles from './page.module.scss';
-import { Target, TrendingUp } from 'lucide-react';
+import React from 'react';
 import Image from 'next/image';
-import PageBanner from '@/app/component/PageBanner/PageBanner';
-import { IMAGES } from '@/app/constants/images';
+import styles from './page.module.scss';
+import { IMAGES } from '../../constants/images';
+import { Target, TrendingUp, Heart } from 'lucide-react';
 
 export default function VisionMissionPage() {
   return (
-    <main>
-      <PageBanner 
-        title="Tầm nhìn & Sứ mệnh" 
-        subtitle="Kim chỉ nam cho mọi hoạt động tại Sano Media" 
-      />
-
-      <div className={styles.container}>
+    <main className={styles.wrapper}>
+      
+      {/* 1. HERO - CÓ ẢNH NỀN */}
+      <section className={styles.heroSection}>
+        <div className={styles.bgImage}>
+           {/* Dùng ảnh Banner chung hoặc ảnh Team */}
+           <Image 
+             src={IMAGES.ABOUT.MISSION} 
+             alt="Hero Background" 
+             fill 
+            style={{ objectPosition: 'top center' }}
+             priority
+           />
+        </div>
         
-        {/* --- KHỐI SỨ MỆNH --- */}
-        <section className={styles.section}>
-          <div className={styles.imageCol}>
-             {/* Thay ảnh thật của công ty vào đây */}
-             <div className={styles.imgWrapper}>
-               <Image 
-                 src={IMAGES.ABOUT.MISSION}
-                 alt="Sứ mệnh Sano" 
-                 width={600} height={400} 
-               />
-             </div>
-          </div>
-          <div className={styles.textCol}>
-            <h2 className={styles.headingRed}>
-              <Target className={styles.icon} /> Sứ mệnh
-            </h2>
-            <p className={styles.slogan}>
-              "Giáo dục người xem qua <b>Video Content giá trị</b>."
-            </p>
-            <div className={styles.content}>
-              <strong>Sano Media cam kết mang đến:</strong>
+        <div className={styles.heroContent}>
+          <span className={styles.label}>Kim chỉ nam hoạt động</span>
+          <h1>Tầm nhìn & Sứ mệnh</h1>
+          <p>
+            "Giáo dục người xem qua Video Content giá trị." <br/>
+            Đó là lời cam kết xuyên suốt của Sano Media từ những ngày đầu thành lập.
+          </p>
+        </div>
+      </section>
+
+      {/* 2. VISION - GIỮ NGUYÊN */}
+      <section className={styles.visionSection}>
+        <div className={styles.container}>
+          <div className={styles.visionBox}>
+            <div className={styles.visionText}>
+              <h2>
+                {/* <span className={styles.year}>2030</span> */}
+                Tập đoàn MMO Đa ngành
+              </h2>
+              <p>
+                Trở thành biểu tượng trong ngành sáng tạo nội dung số. 
+                Xây dựng một <strong>"Hệ sinh thái cùng phát triển - Cùng WIN"</strong>.
+              </p>
               <ul>
-                <li>Những nội dung giáo dục – giải trí – giá trị, không độc hại.</li>
-                <li>Mô hình kiếm tiền MMO minh bạch, bền vững, giúp nhân sự phá bỏ giới hạn thu nhập.</li>
-                <li>Một môi trường để con người có thu nhập tốt, khỏe mạnh và phát triển lành mạnh.</li>
+                <li><span className={styles.dot}></span> Đổi mới mô hình nội dung và công nghệ sản xuất</li>
+                <li><span className={styles.dot}></span> Mở rộng sang nhiều lĩnh vực MMO khác nhau</li>
+                <li><span className={styles.dot}></span> Trao cơ hội làm chủ cho nhân sự có khát vọng</li>
               </ul>
             </div>
-          </div>
-        </section>
-
-        {/* --- KHỐI TẦM NHÌN (Đảo chiều) --- */}
-        <section className={`${styles.section} ${styles.reverse}`}>
-          <div className={styles.imageCol}>
-             <div className={styles.imgWrapper}>
-               <Image 
-                 src={IMAGES.ABOUT.VISION }
-                 alt="Tầm nhìn Sano" 
-                 width={600} height={400} 
-               />
-             </div>
-          </div>
-          <div className={styles.textCol}>
-            <h2 className={styles.headingDark}>
-              <TrendingUp className={styles.icon} /> Tầm nhìn
-            </h2>
-            <p className={styles.slogan}>
-              "Trở thành tập đoàn MMO đa ngành.<br/>Hệ sinh thái cùng phát triển - cùng <b>WIN</b>."
-            </p>
-            <div className={styles.content}>
-              <ul>
-                <li>Đổi mới mô hình nội dung và công nghệ sản xuất.</li>
-                <li>Mở rộng sang nhiều lĩnh vực MMO khác nhau, đa dạng nguồn thu.</li>
-                <li>Trao cơ hội làm chủ và đồng hành cùng những con người có khát vọng vươn lên.</li>
-              </ul>
+            <div className={styles.visionImage}>
+              <Image 
+                src={IMAGES.ABOUT.VISION} 
+                alt="Vision MMO" 
+                fill 
+                style={{ objectFit: 'cover' }}
+              />
             </div>
           </div>
-        </section>
+        </div>
+      </section>
 
-      </div>
+      {/* 3. MISSION - XẾP HÀNG DỌC (ROWS) */}
+      <section className={styles.missionSection}>
+        <div className={styles.container}>
+          <div className={styles.missionHeader}>
+            <h2>Sứ mệnh Sano Media</h2>
+            <p>3 Trụ cột giá trị mà chúng tôi theo đuổi</p>
+          </div>
+
+          <div className={styles.missionGrid}>
+            
+            {/* ROW 1: Nội dung */}
+            <div className={styles.missionCard}>
+              <div className={styles.bgImage}>
+                <Image 
+                  src="https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?auto=format&fit=crop&q=80" 
+                  alt="Content" fill 
+                />
+              </div>
+              <div className={styles.overlay}></div>
+              
+              <div className={styles.content}>
+                <div className={styles.iconWrapper}><Target /></div>
+                <h3>Nội dung Giá trị</h3>
+                <p>
+                  Mang đến những sản phẩm Giáo dục – Giải trí – Lành mạnh. 
+                  Nói không với nội dung độc hại (Toxic). Nâng cao nhận thức cộng đồng thông qua từng thước phim.
+                </p>
+              </div>
+            </div>
+
+            {/* ROW 2: Mô hình */}
+            <div className={styles.missionCard}>
+              <div className={styles.bgImage}>
+                <Image 
+                  src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80" 
+                  alt="Business Model" fill 
+                />
+              </div>
+              <div className={styles.overlay}></div>
+              
+              <div className={styles.content}>
+                <div className={styles.iconWrapper}><TrendingUp /></div>
+                <h3>Mô hình Bền vững</h3>
+                <p>
+                  Xây dựng hệ thống MMO minh bạch. Giúp nhân sự phá bỏ giới hạn thu nhập, 
+                  làm chủ tài chính từ chính đam mê sáng tạo của mình. Chia sẻ cơ hội làm chủ doanh nghiệp.
+                </p>
+              </div>
+            </div>
+
+            {/* ROW 3: Con người */}
+            <div className={styles.missionCard}>
+              <div className={styles.bgImage}>
+                <Image 
+                  src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=80" 
+                  alt="Environment" fill 
+                />
+              </div>
+              <div className={styles.overlay}></div>
+              
+              <div className={styles.content}>
+                <div className={styles.iconWrapper}><Heart /></div>
+                <h3>Môi trường Hạnh phúc</h3>
+                <p>
+                  Kiến tạo không gian làm việc nơi con người được phát triển toàn diện: 
+                  Tư duy sắc bén - Kỹ năng vượt trội - Sức khỏe dẻo dai. Văn hóa "Work Hard, Play Harder".
+                </p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
     </main>
   );
 }

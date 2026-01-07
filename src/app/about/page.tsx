@@ -15,10 +15,10 @@ const timelineData = [
 
 // Dữ liệu Team (Placeholder - Thay ảnh thật vào đây)
 const leaders = [
-  { name: "Nguyễn Văn A", role: "Founder & CEO", img: IMAGES.LEADERS.CEO },
-  { name: "Trần Thị B", role: "Content Director", img: IMAGES.LEADERS.CONTENT_DIR },
-  { name: "Lê Văn C", role: "Head of Production", img: IMAGES.LEADERS.PROD_HEAD },
-  { name: "Phạm Thị D", role: "HR Manager", img: IMAGES.LEADERS.HR_MGR }
+  { name: "Đào Thanh Tú", role: "Founder & CEO", img: IMAGES.LEADERS.CEO },
+  { name: "Nguyễn Đức Tâm", role: "Phó Giám Đốc", img: IMAGES.LEADERS.CEO1 },
+  { name: "Nguyễn Thị Hoa", role: "Giám Đốc Tài Chính", img: IMAGES.LEADERS.PROD_HEAD },
+  { name: "Nguyễn Thị Liên", role: "HR Manager", img: IMAGES.LEADERS.HR_MGR }
 ];
 
 export default function AboutPage() {
@@ -61,7 +61,7 @@ export default function AboutPage() {
                   alt="CEO" width={60} height={60} 
                 />
                 <div>
-                  <h4>Mr. Nguyễn Văn A</h4>
+                  <h4>Mr. Đào Thanh Tú</h4>
                   <span>Founder & CEO</span>
                 </div>
               </div>

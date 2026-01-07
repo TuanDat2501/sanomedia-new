@@ -5,7 +5,12 @@ import Header from "@/app/component/header/Header";
 import Footer from "@/app/component/footer/Footer";
 import IGraduate from "@/icon/IGraduate";
 import { Be_Vietnam_Pro } from "next/font/google";
-const inter = Inter({subsets: ["latin"]});
+const inter = Inter({
+  subsets: ["latin", "vietnamese"],
+  weight: ["300", "400", "500", "600", "700", "800"], // Load thêm 800 (ExtraBold)
+  variable: "--font-inter",
+  display: "swap",
+});
 const beVietnamPro = Be_Vietnam_Pro({
   subsets: ["latin", "vietnamese"],
   weight: ["300", "400", "500", "600", "700", "900"], // Load đủ các độ đậm cần thiết
@@ -25,7 +30,7 @@ export default function RootLayout({
 }>) {
     return (
         <html lang="en">
-        <body className={beVietnamPro.variable}>
+        <body className={inter.variable}>
         <Header/>
         <div className="main-children">
             {children}

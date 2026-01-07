@@ -1,0 +1,259 @@
+@import '../styles/variables';
+
+.wrapper {
+  background-color: #fff;
+  color: #000;
+  font-family: var(--font-be-vietnam), sans-serif;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.missionBox {
+  margin-top: 60px;
+  padding: 60px;
+  background-color: #f9f9f9;
+  border-left: 5px solid $primary-red; // Điểm nhấn đỏ Sano
+  
+  h3 {
+    font-size: 2rem;
+    font-weight: 800;
+    margin-bottom: 20px;
+    color: #000;
+  }
+  
+  p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #444;
+  }
+}
+
+.valuesGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 40px;
+  margin-top: 60px;
+
+  @include mobile { grid-template-columns: 1fr; gap: 40px; }
+
+  .valueItem {
+    // Phong cách Samsung: Đường kẻ đậm trên đầu
+    border-top: 4px solid #e0e0e0; 
+    padding-top: 24px;
+    transition: all 0.3s;
+
+    &:hover {
+      border-top-color: $primary-red; // Hover đổi màu đỏ
+      transform: translateY(-5px);
+    }
+
+    h4 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 15px;
+      color: #000;
+    }
+
+    p {
+      font-size: 1rem;
+      line-height: 1.6;
+      color: #666;
+    }
+  }
+}
+// --- 1. HERO BANNER (Full width, Dark) ---
+.heroSection {
+  height: 600px; // Chiều cao cố định giống Samsung
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background-color: #000;
+  color: #fff;
+  margin-top: 0; // Reset
+
+  .bgImage {
+    position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 0;
+    opacity: 0.5;
+    img { width: 100%; height: 100%; object-fit: cover; }
+  }
+
+  .heroContent {
+    position: relative; z-index: 2; max-width: 800px;
+    h1 {
+      font-size: 3.5rem; // Chữ rất to
+      font-weight: 700;
+      margin-bottom: 24px;
+      line-height: 1.2;
+    }
+  }
+}
+
+// --- 2. SAMSUNG STICKY TABS ---
+.stickyNav {
+  position: sticky;
+  top: 0; // Dính lên cùng màn hình (hoặc dưới header của bạn)
+  z-index: 100;
+  background: #fff;
+  border-bottom: 1px solid #e0e0e0;
+  
+  ul {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    gap: 60px; // Khoảng cách rộng
+
+    @include mobile { gap: 20px; overflow-x: auto; justify-content: flex-start; padding: 0 20px; }
+
+    li {
+      a {
+        display: block;
+        padding: 24px 0;
+        font-size: 1rem;
+        font-weight: 700;
+        color: #555;
+        text-transform: capitalize; // Chữ thường viết hoa đầu
+        border-bottom: 3px solid transparent;
+        transition: all 0.2s;
+
+        &:hover, &.active {
+          color: #000; // Samsung dùng màu đen cho active
+          border-bottom-color: #000; // Gạch chân màu đen
+        }
+      }
+    }
+  }
+}
+
+// --- 3. GENERAL SECTION STYLE (Cấu trúc Label -> Title -> Desc) ---
+.section {
+  padding: 120px 0;
+  border-bottom: 1px solid #f2f2f2;
+
+  // Header chung của mỗi section
+  .sectionHeader {
+    text-align: center;
+    max-width: 900px;
+    margin: 0 auto 60px;
+
+    .label {
+      font-size: 1rem;
+      font-weight: 700;
+      color: $primary-red; // Điểm nhấn Sano
+      margin-bottom: 20px;
+      display: block;
+      text-transform: uppercase;
+    }
+
+    h2 {
+      font-size: 3rem; // Tiêu đề cực lớn
+      font-weight: 700;
+      color: #000;
+      margin-bottom: 30px;
+      line-height: 1.3;
+      
+      @include mobile { font-size: 2rem; }
+    }
+
+    p {
+      font-size: 1.125rem;
+      color: #444;
+      line-height: 1.8;
+    }
+  }
+}
+
+// --- 4. CEO MESSAGE (Ảnh trái - Chữ phải) ---
+.ceoGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+
+  @include mobile { grid-template-columns: 1fr; gap: 40px; }
+
+  .ceoImg {
+    width: 100%;
+    img { width: 100%; height: auto; display: block; }
+  }
+
+  .ceoText {
+    h3 {
+      font-size: 2.2rem;
+      font-weight: 700;
+      margin-bottom: 30px;
+      line-height: 1.3;
+    }
+    p {
+      font-size: 1rem;
+      line-height: 1.8;
+      color: #333;
+      margin-bottom: 20px;
+    }
+    .sign {
+      margin-top: 40px;
+      img { height: 60px; width: auto; } // Ảnh chữ ký
+      strong { display: block; margin-top: 10px; font-size: 1.1rem; }
+    }
+  }
+}
+
+// --- 5. STATS (4 Cột số liệu) ---
+.statsGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  text-align: center;
+
+  @include mobile { grid-template-columns: 1fr; gap: 40px; }
+
+  .statItem {
+    strong {
+      display: block;
+      font-size: 3.5rem;
+      font-weight: 700;
+      color: $primary-red;
+      line-height: 1.2;
+      margin-bottom: 10px;
+    }
+    span {
+      font-size: 1rem;
+      font-weight: 600;
+      color: #000;
+    }
+  }
+}
+
+// --- 6. DOWNLOAD PROFILE (Giống cuối trang Samsung) ---
+.downloadSection {
+  background: #f7f7f7;
+  padding: 80px 0;
+  text-align: center;
+
+  h3 { font-size: 1.8rem; font-weight: 700; margin-bottom: 30px; }
+
+  .downloadBtn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 15px 40px;
+    border: 1px solid #000;
+    border-radius: 30px; // Nút bo tròn
+    color: #000;
+    font-weight: 700;
+    transition: all 0.3s;
+    background: transparent;
+
+    &:hover {
+      background: #000;
+      color: #fff;
+    }
+  }
+}

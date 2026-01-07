@@ -5,6 +5,7 @@ import Link from 'next/link';
 import styles from './Header.module.scss';
 // Thêm ChevronDown cho mũi tên
 import { Mail, Phone, Menu, X, Facebook, Youtube, Linkedin, ChevronDown } from 'lucide-react';
+import Image from 'next/image';
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -59,7 +60,14 @@ const Header = () => {
         <div className={styles.mainBar}>
           <div className={styles.container}>
             
-            <Link href="/" className={styles.logo}>SANO MEDIA</Link>
+            <Link href="/" className={styles.logo}>
+            <Image
+              src="/image/logo123.png"
+              alt="Sano Media Logo"
+              width={100}
+              height={50}
+            ></Image>
+            </Link>
 
             {/* --- DESKTOP MENU --- */}
             <nav className={styles.navDesktop}>

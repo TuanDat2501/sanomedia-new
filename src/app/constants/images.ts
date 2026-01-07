@@ -18,9 +18,9 @@ export const IMAGES = {
 
   // Phần Biểu đồ tăng trưởng (Case Study)
   HOME_GROWTH: {
-    CHART_VIEW: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80',
-    CHART_REVENUE: 'https://images.unsplash.com/photo-1543286386-713df548e9cc?auto=format&fit=crop&q=80',
-    CHART_VIRAL: 'https://images.unsplash.com/photo-1590283603385-17ffb3a7f29f?auto=format&fit=crop&q=80',
+    CHART_VIEW: 'https://i.ibb.co/3Yz79WTT/490848647-9605927082858238-132765217763231872-n.jpg',
+    CHART_REVENUE: 'https://i.ibb.co/4g7fBWQd/490334210-9576308005820146-80847378996782752-n.jpg',
+    CHART_VIRAL: 'https://i.ibb.co/zTfNMTM0/489023353-9565578886893058-2333358283658813264-n.jpg',
   },
 
   // Đối tác (Nên tải logo về máy và để trong public/partners/)
@@ -41,10 +41,11 @@ export const IMAGES = {
 
   // Lãnh đạo
   LEADERS: {
-    CEO: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80',
+    CEO: 'https://i.ibb.co/GfG1ncft/488177285-9530604697057144-8194702153499768105-n.jpg',
+    CEO1: 'https://i.ibb.co/XrY4gg7G/a-t-m.png',
     CONTENT_DIR: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80',
-    PROD_HEAD: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&q=80',
-    HR_MGR: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&q=80',
+    PROD_HEAD: 'https://i.ibb.co/jP6DSCz1/IMG-3400.jpg',
+    HR_MGR: 'https://i.ibb.co/fYxk3PHf/361345582-101115933067780-5493701804429898283-n.jpg',
   },
 
   // --- TRANG VĂN HÓA (SANO LIFE) ---

@@ -2,18 +2,25 @@ import React from 'react';
 import Link from 'next/link';
 import styles from './Footer.module.scss';
 import { Facebook, Youtube, Linkedin, MapPin, Phone, Mail, Globe } from 'lucide-react';
-
+import Image from 'next/image';
 const Footer = () => {
   return (
     <footer className={styles.footer}>
       <div className={styles.container}>
         <div className={styles.grid}>
-          
+
           {/* CỘT 1 */}
           <div className={styles.brandCol}>
-            <Link href="/" className={styles.logo}>SANO MEDIA</Link>
+            <Link href="/" className={styles.logo}>
+              <Image
+                src="/image/logo123.png"
+                alt="Sano Media Logo"
+                width={200}
+                height={50}
+              ></Image>
+            </Link>
             <p className={styles.description}>
-              Doanh nghiệp sản xuất sáng tạo nội dung YouTube hàng đầu. 
+              Doanh nghiệp sản xuất sáng tạo nội dung YouTube hàng đầu.
               Kiến tạo giá trị số bền vững & môi trường làm việc hạnh phúc.
             </p>
             <div className={styles.socials}>
