@@ -9,25 +9,26 @@ import { Target, TrendingUp, Heart } from 'lucide-react';
 export default function VisionMissionPage() {
   return (
     <main className={styles.wrapper}>
-      
+
       {/* 1. HERO - CÓ ẢNH NỀN */}
       <section className={styles.heroSection}>
         <div className={styles.bgImage}>
-           {/* Dùng ảnh Banner chung hoặc ảnh Team */}
-           <Image 
-             src={IMAGES.ABOUT.MISSION} 
-             alt="Hero Background" 
-             fill 
+          {/* Dùng ảnh Banner chung hoặc ảnh Team */}
+          <Image
+            quality={70}
+            src={IMAGES.ABOUT.MISSION}
+            alt="Hero Background"
+            fill
             style={{ objectPosition: 'top center' }}
-             priority
-           />
+            priority
+          />
         </div>
-        
+
         <div className={styles.heroContent}>
           <span className={styles.label}>Kim chỉ nam hoạt động</span>
           <h1>Tầm nhìn & Sứ mệnh</h1>
           <p>
-            "Giáo dục người xem qua Video Content giá trị." <br/>
+            "Giáo dục người xem qua Video Content giá trị." <br />
             Đó là lời cam kết xuyên suốt của Sano Media từ những ngày đầu thành lập.
           </p>
         </div>
@@ -43,7 +44,7 @@ export default function VisionMissionPage() {
                 Tập đoàn MMO Đa ngành
               </h2>
               <p>
-                Trở thành biểu tượng trong ngành sáng tạo nội dung số. 
+                Trở thành biểu tượng trong ngành sáng tạo nội dung số.
                 Xây dựng một <strong>"Hệ sinh thái cùng phát triển - Cùng WIN"</strong>.
               </p>
               <ul>
@@ -53,10 +54,10 @@ export default function VisionMissionPage() {
               </ul>
             </div>
             <div className={styles.visionImage}>
-              <Image 
-                src={IMAGES.ABOUT.VISION} 
-                alt="Vision MMO" 
-                fill 
+              <Image
+                src={IMAGES.ABOUT.VISION}
+                alt="Vision MMO"
+                fill
                 style={{ objectFit: 'cover' }}
               />
             </div>
@@ -73,22 +74,22 @@ export default function VisionMissionPage() {
           </div>
 
           <div className={styles.missionGrid}>
-            
+
             {/* ROW 1: Nội dung */}
             <div className={styles.missionCard}>
               <div className={styles.bgImage}>
-                <Image 
-                  src="https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?auto=format&fit=crop&q=80" 
-                  alt="Content" fill 
+                <Image
+                  src="https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?auto=format&fit=crop&q=80"
+                  alt="Content" fill
                 />
               </div>
               <div className={styles.overlay}></div>
-              
+
               <div className={styles.content}>
                 <div className={styles.iconWrapper}><Target /></div>
                 <h3>Nội dung Giá trị</h3>
                 <p>
-                  Mang đến những sản phẩm Giáo dục – Giải trí – Lành mạnh. 
+                  Mang đến những sản phẩm Giáo dục – Giải trí – Lành mạnh.
                   Nói không với nội dung độc hại (Toxic). Nâng cao nhận thức cộng đồng thông qua từng thước phim.
                 </p>
               </div>
@@ -97,18 +98,18 @@ export default function VisionMissionPage() {
             {/* ROW 2: Mô hình */}
             <div className={styles.missionCard}>
               <div className={styles.bgImage}>
-                <Image 
-                  src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80" 
-                  alt="Business Model" fill 
+                <Image
+                  src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80"
+                  alt="Business Model" fill
                 />
               </div>
               <div className={styles.overlay}></div>
-              
+
               <div className={styles.content}>
                 <div className={styles.iconWrapper}><TrendingUp /></div>
                 <h3>Mô hình Bền vững</h3>
                 <p>
-                  Xây dựng hệ thống MMO minh bạch. Giúp nhân sự phá bỏ giới hạn thu nhập, 
+                  Xây dựng hệ thống MMO minh bạch. Giúp nhân sự phá bỏ giới hạn thu nhập,
                   làm chủ tài chính từ chính đam mê sáng tạo của mình. Chia sẻ cơ hội làm chủ doanh nghiệp.
                 </p>
               </div>
@@ -117,18 +118,18 @@ export default function VisionMissionPage() {
             {/* ROW 3: Con người */}
             <div className={styles.missionCard}>
               <div className={styles.bgImage}>
-                <Image 
-                  src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=80" 
-                  alt="Environment" fill 
+                <Image
+                  src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=80"
+                  alt="Environment" fill
                 />
               </div>
               <div className={styles.overlay}></div>
-              
+
               <div className={styles.content}>
                 <div className={styles.iconWrapper}><Heart /></div>
                 <h3>Môi trường Hạnh phúc</h3>
                 <p>
-                  Kiến tạo không gian làm việc nơi con người được phát triển toàn diện: 
+                  Kiến tạo không gian làm việc nơi con người được phát triển toàn diện:
                   Tư duy sắc bén - Kỹ năng vượt trội - Sức khỏe dẻo dai. Văn hóa "Work Hard, Play Harder".
                 </p>
               </div>
