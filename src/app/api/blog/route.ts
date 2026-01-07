@@ -22,7 +22,7 @@ export async function POST(req: NextRequest) {
   try {
     await dbConnect();
     const body = await req.json();
-    const { title, description, thumbnail, content, slug: customSlug, isPinned } = body;
+    const { title, description, thumbnail, content, slug: customSlug, isPinned, category } = body;
 
     if (!title || !content || !description) {
         return NextResponse.json({ success: false, error: 'Thiếu thông tin bắt buộc' }, { status: 400 });
@@ -37,6 +37,7 @@ export async function POST(req: NextRequest) {
       thumbnail,
       content,
       isPinned: isPinned || false,
+      category: category || 'Tin tức chung',
     });
 
     return NextResponse.json({ success: true, data: newPost }, { status: 201 });
@@ -50,7 +51,7 @@ export async function PUT(req: NextRequest) {
   try {
     await dbConnect();
     const body = await req.json();
-    const { _id, title, description, thumbnail, content, isPinned } = body;
+    const { _id, title, description, thumbnail, content, isPinned, category } = body;
 
     if (!_id) {
       return NextResponse.json({ success: false, error: 'Thiếu ID bài viết' }, { status: 400 });
@@ -61,7 +62,7 @@ export async function PUT(req: NextRequest) {
 
     const updatedPost = await Post.findByIdAndUpdate(
       _id,
-      { title, slug, description, thumbnail, content, isPinned },
+      { title, slug, description, thumbnail, content, isPinned, category },
       { new: true } // Trả về dữ liệu mới sau khi update
     );
 

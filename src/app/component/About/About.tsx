@@ -1,6 +1,7 @@
 import React from 'react';
 import styles from './About.module.scss';
 import Image from 'next/image';
+import { IMAGES } from '@/app/constants/images';
 
 const About = () => {
   return (
@@ -25,7 +26,7 @@ const About = () => {
         <div className={styles.imageCol}>
            {/* Lưu ý: Thay src bằng ảnh thật của công ty bạn */}
            <Image 
-             src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=80" 
+             src={IMAGES.HOME_ABOUT}
              alt="Đội ngũ Sano Media" 
              width={600} 
              height={400}

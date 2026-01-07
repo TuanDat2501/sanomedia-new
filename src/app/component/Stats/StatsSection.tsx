@@ -10,17 +10,17 @@ interface StatItem {
 
 const statsData: StatItem[] = [
   { 
-    number: "09+", 
+    number: "09", 
     label: "Năm kinh nghiệm", 
     desc: "Phát triển bền vững" 
   },
   { 
-    number: "01", 
+    number: "02", 
     label: "Nút vàng", 
     desc: "Chứng nhận YouTube" 
   },
   { 
-    number: "05", 
+    number: "30", 
     label: "Nút bạc", 
     desc: "Kênh đạt 100k sub" 
   },

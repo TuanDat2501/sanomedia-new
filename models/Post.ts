@@ -8,6 +8,7 @@ export interface IPost extends Document {
   thumbnail?: string;
   content: string;
   isPinned: boolean; // <--- THÊM DÒNG NÀY
+  category: { type: String, default: 'Tin tức chung' },
   createdAt: Date;
   updatedAt: Date;
 }

@@ -1,5 +1,6 @@
 import React from 'react';
 import styles from './PageBanner.module.scss';
+import { IMAGES } from '@/app/constants/images';
 
 interface Props {
   title: string;
@@ -8,7 +9,7 @@ interface Props {
 
 const PageBanner = ({ title, subtitle }: Props) => {
   return (
-    <section className={styles.banner}>
+    <section className={styles.banner} style={{ backgroundImage: `url(${IMAGES.ABOUT.BANNER})` }}>
       <div className={styles.overlay}></div>
       <div className={styles.container}>
         <h1 className={styles.title}>{title}</h1>

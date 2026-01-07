@@ -3,6 +3,7 @@ import Image from 'next/image';
 import styles from './HomeSections.module.scss';
 import { Youtube, Video, Users, ArrowRight, Award, TrendingUp, DollarSign, Eye } from 'lucide-react';
 import Link from 'next/link';
+import { IMAGES } from '@/app/constants/images';
 
 const HomeSections = () => {
   return (
@@ -59,7 +60,7 @@ const HomeSections = () => {
               <div className={styles.chartImage}>
                 {/* Ảnh biểu đồ View tăng vọt */}
                 <Image 
-                  src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80" 
+                  src={IMAGES.HOME_GROWTH.CHART_VIEW} 
                   alt="Chart View" width={400} height={200} 
                 />
                 <div className={styles.label}><TrendingUp size={14}/> Verified Data</div>
@@ -92,7 +93,7 @@ const HomeSections = () => {
               <div className={styles.chartImage}>
                 {/* Ảnh biểu đồ Tiền */}
                 <Image 
-                  src="https://images.unsplash.com/photo-1543286386-713df548e9cc?auto=format&fit=crop&q=80" 
+                  src={IMAGES.HOME_GROWTH.CHART_REVENUE} 
                   alt="Chart Revenue" width={400} height={200} 
                 />
                 <div className={styles.label}><DollarSign size={14}/> Revenue Growth</div>
@@ -125,7 +126,7 @@ const HomeSections = () => {
               <div className={styles.chartImage}>
                 {/* Ảnh biểu đồ cột */}
                 <Image 
-                  src="https://images.unsplash.com/photo-1590283603385-17ffb3a7f29f?auto=format&fit=crop&q=80" 
+                  src={IMAGES.HOME_GROWTH.CHART_VIRAL} 
                   alt="Chart Viral" width={400} height={200} 
                 />
                 <div className={styles.label}><Eye size={14}/> Realtime Views</div>

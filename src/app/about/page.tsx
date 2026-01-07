@@ -2,6 +2,7 @@ import React from 'react';
 import PageBanner from '../component/PageBanner/PageBanner';
 import styles from './page.module.scss';
 import Image from 'next/image';
+import { IMAGES } from '../constants/images';
 
 // Dữ liệu Timeline
 const timelineData = [
@@ -14,10 +15,10 @@ const timelineData = [
 
 // Dữ liệu Team (Placeholder - Thay ảnh thật vào đây)
 const leaders = [
-  { name: "Nguyễn Văn A", role: "Founder & CEO", img: "https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80" },
-  { name: "Trần Thị B", role: "Content Director", img: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80" },
-  { name: "Lê Văn C", role: "Head of Production", img: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&q=80" },
-  { name: "Phạm Thị D", role: "HR Manager", img: "https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&q=80" }
+  { name: "Nguyễn Văn A", role: "Founder & CEO", img: IMAGES.LEADERS.CEO },
+  { name: "Trần Thị B", role: "Content Director", img: IMAGES.LEADERS.CONTENT_DIR },
+  { name: "Lê Văn C", role: "Head of Production", img: IMAGES.LEADERS.PROD_HEAD },
+  { name: "Phạm Thị D", role: "HR Manager", img: IMAGES.LEADERS.HR_MGR }
 ];
 
 export default function AboutPage() {
@@ -56,7 +57,7 @@ export default function AboutPage() {
               </blockquote>
               <div className={styles.ceoInfo}>
                 <Image 
-                  src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80" 
+                  src={IMAGES.LEADERS.CEO}
                   alt="CEO" width={60} height={60} 
                 />
                 <div>

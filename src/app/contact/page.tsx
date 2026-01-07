@@ -14,22 +14,22 @@ export default function ContactPage() {
 
   return (
     <main className={styles.wrapper}>
-      <PageBanner 
-        title="Liên Hệ" 
-        subtitle="Kết nối với Sano Media để cùng kiến tạo giá trị" 
+      <PageBanner
+        title="Liên Hệ"
+        subtitle="Kết nối với Sano Media để cùng kiến tạo giá trị"
       />
 
       <section className={styles.contactSection}>
         <div className={styles.container}>
-          
+
           {/* SỬ DỤNG CLASS WRAPPER GRID MỚI */}
           <div className={styles.contentWrapper}>
-            
+
             {/* --- CỘT TRÁI: THÔNG TIN --- */}
             <div className={styles.infoCol}>
               <h2>Kết nối với chúng tôi</h2>
               <p>
-                Bạn có câu hỏi về dịch vụ, tuyển dụng hay muốn hợp tác? 
+                Bạn có câu hỏi về dịch vụ, tuyển dụng hay muốn hợp tác?
                 Đừng ngần ngại liên hệ với đội ngũ Sano Media.
               </p>
 
@@ -123,15 +123,7 @@ export default function ContactPage() {
       {/* --- BẢN ĐỒ --- */}
       <section className={styles.mapSection}>
         {/* Link iframe Google Maps thực tế trỏ về TP Bắc Giang */}
-        <iframe 
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3720.8931587640366!2d106.1947223!3d21.2750000!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31357917f2238497%3A0x53d53b2164478229!2zVHLhu6Ugc2Dhu58gU2FubyBNZWRpYSBWaeG7h3QgTmFt!5e0!3m2!1svi!2s!4v1700000000000!5m2!1svi!2s" 
-          width="100%" 
-          height="450" 
-          allowFullScreen={true} 
-          loading="lazy" 
-          referrerPolicy="no-referrer-when-downgrade"
-          title="Bản đồ Sano Media"
-        ></iframe>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3717.714831629714!2d106.20658787610138!3d21.28275278043101!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31356da658a4a00b%3A0x8f52c7ea845700f1!2sC%C3%B4ng%20Ty%20TNHH%20Sano%20Media%20Vi%E1%BB%87t%20Nam!5e0!3m2!1sen!2s!4v1767775243645!5m2!1sen!2s" width="600" height="450" style={{ border: 0 }} allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
       </section>
 
     </main>

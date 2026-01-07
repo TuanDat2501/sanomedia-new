@@ -4,6 +4,7 @@ import styles from './page.module.scss';
 import { Target, TrendingUp } from 'lucide-react';
 import Image from 'next/image';
 import PageBanner from '@/app/component/PageBanner/PageBanner';
+import { IMAGES } from '@/app/constants/images';
 
 export default function VisionMissionPage() {
   return (
@@ -21,7 +22,7 @@ export default function VisionMissionPage() {
              {/* Thay ảnh thật của công ty vào đây */}
              <div className={styles.imgWrapper}>
                <Image 
-                 src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&q=80" 
+                 src={IMAGES.ABOUT.MISSION}
                  alt="Sứ mệnh Sano" 
                  width={600} height={400} 
                />
@@ -32,7 +33,7 @@ export default function VisionMissionPage() {
               <Target className={styles.icon} /> Sứ mệnh
             </h2>
             <p className={styles.slogan}>
-              "Giáo dục người xem qua Video Content giá trị."
+              "Giáo dục người xem qua <b>Video Content giá trị</b>."
             </p>
             <div className={styles.content}>
               <strong>Sano Media cam kết mang đến:</strong>
@@ -50,7 +51,7 @@ export default function VisionMissionPage() {
           <div className={styles.imageCol}>
              <div className={styles.imgWrapper}>
                <Image 
-                 src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&q=80" 
+                 src={IMAGES.ABOUT.VISION }
                  alt="Tầm nhìn Sano" 
                  width={600} height={400} 
                />
@@ -61,7 +62,7 @@ export default function VisionMissionPage() {
               <TrendingUp className={styles.icon} /> Tầm nhìn
             </h2>
             <p className={styles.slogan}>
-              "Trở thành tập đoàn MMO đa ngành.<br/>Hệ sinh thái cùng phát triển - cùng WIN."
+              "Trở thành tập đoàn MMO đa ngành.<br/>Hệ sinh thái cùng phát triển - cùng <b>WIN</b>."
             </p>
             <div className={styles.content}>
               <ul>

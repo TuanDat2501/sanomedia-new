@@ -1,9 +1,10 @@
 import React from 'react';
 import styles from './Hero.module.scss';
+import { IMAGES } from '@/app/constants/images';
 
 const Hero = () => {
   return (
-    <section className={styles.hero}>
+    <section className={styles.hero} style={{ backgroundImage: `url(${IMAGES.HERO_BG})` }}>
       <div className={styles.container}>
         <div className={styles.content}>
           <span className={styles.label}>Sano Media Việt Nam</span>
