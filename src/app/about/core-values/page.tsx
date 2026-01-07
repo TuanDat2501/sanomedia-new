@@ -4,28 +4,171 @@ import React from 'react';
 import Image from 'next/image';
 import styles from './page.module.scss';
 import { IMAGES } from '../../constants/images';
-import { BookOpen, Lightbulb, ShieldCheck, Rocket, XCircle, AlertTriangle, Gem, TrendingUp, MessageSquare, Users, Trophy } from 'lucide-react';
+import { BookOpen, Lightbulb, ShieldCheck, Rocket, XCircle, AlertTriangle, Gem, TrendingUp, MessageSquare, Users, Trophy, Target, RefreshCw, Award, Smile, Zap, User } from 'lucide-react';
 
 export default function CoreValuesPage() {
+  // Dữ liệu từ hình ảnh bạn cung cấp
+  const values = [
+    {
+      id: "01",
+      title: "Học tập suốt đời",
+      desc: "MMO thay đổi liên tục. Không học = Tự loại mình.",
+      action: "Mỗi ngày học thêm 1 kỹ năng mới, tư duy mới, cách làm mới.",
+      icon: <BookOpen />,
+      img: "https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?auto=format&fit=crop&q=80" // Ảnh sách vở
+    },
+    {
+      id: "02",
+      title: "Thái độ tích cực",
+      desc: "Có vấn đề → Đưa giải pháp. Không than vãn, không đổ lỗi.",
+      action: "Tư duy luôn hướng về việc đề xuất giải pháp để giải quyết vấn đề.",
+      icon: <Smile />,
+      img: "https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&q=80" // Ảnh nhóm vui vẻ
+    },
+    {
+      id: "03",
+      title: "Sự công nhận",
+      desc: "Làm tốt phải được ghi nhận công bằng và minh bạch.",
+      action: "Ghi nhận cá nhân và team có kết quả tốt, có ý tưởng sáng tạo.",
+      icon: <Award />,
+      img: "https://i.ibb.co/cXC8KgT3/MBO-85-300x204.webp" // Ảnh cúp vàng
+    },
+    {
+      id: "04",
+      title: "Đoàn kết",
+      desc: "Hướng về mục tiêu chung để cùng WIN.",
+      action: "Luôn giữ tinh thần giúp đỡ tất cả mọi người trong đội ngũ.",
+      icon: <Users />,
+      img: "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&q=80" // Ảnh nắm tay/Team
+    },
+    {
+      id: "05",
+      title: "Kỷ luật",
+      desc: "Kỷ luật là thước đo giá trị của một người.",
+      action: "Tuân thủ tuyệt đối quy trình và quy định của tổ chức.",
+      icon: <ShieldCheck />,
+      img: "https://images.unsplash.com/photo-1461896836934-ffe607ba8211?auto=format&fit=crop&q=80" // Ảnh thể thao/chạy bộ
+    },
+    {
+      id: "06",
+      title: "Phản hồi - Phản biện",
+      desc: "Không im lặng - Không né tránh trách nhiệm.",
+      action: "Có việc → Phản hồi ngay. Chưa xong → Báo tiến độ. Có vấn đề → Báo sớm.",
+      icon: <MessageSquare />,
+      img: "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&q=80" // Ảnh họp hành
+    },
+    {
+      id: "07",
+      title: "Kaizen - Cải tiến",
+      desc: "Cải tiến liên tục để nâng cao chất lượng.",
+      action: "Kaizen hàng ngày, hàng tuần. Ngày hôm nay phải tốt hơn hôm qua.",
+      icon: <RefreshCw />,
+      img: "https://i.ibb.co/5WFJ5Js6/646bc26a809a7e252cb85d96be615b22.jpg" // Ảnh mũi tên lên/Growth
+    },
+    {
+      id: "08",
+      title: "Kết quả = Giá trị",
+      desc: "Kết quả lớn = Giá trị càng lớn = Phát triển càng cao.",
+      action: "Tập trung liên tục tạo ra những kết quả mới.",
+      icon: <Target />,
+      img: "https://images.unsplash.com/photo-1533422902779-aff35862e462?auto=format&fit=crop&q=80" // Ảnh đích đến
+    },
+  ];
+
+  // Dữ liệu Nguyên tắc (Từ phần dưới ảnh)
+  const principles = [
+    "Không phản hồi, phản biện → Trừ điểm.",
+    "Than phiền mà không tập trung giải pháp → Nhắc 1 lần, tái phạm 3 lần loại.",
+    "Không đạt mục tiêu liên tiếp → Xem lại vai trò.",
+    "Không học – Không tiến bộ → Không tăng thu nhập.",
+    "Phá đoàn kết → Loại khỏi hệ thống.",
+    "Không phù hợp văn hóa → Không giữ, dù giỏi đến đâu."
+  ];
+  const coreValues = [
+    {
+      id: "01",
+      title: "Con người",
+      intro: "Con người là nền tảng cốt lõi tạo nên sự thành công của Sano Media. Chúng tôi đầu tư vào sự phát triển toàn diện của mỗi cá nhân:",
+      list: [
+        "Năng lực kiếm tiền",
+        "Tư duy dài hạn",
+        "Sức khỏe thể chất và tinh thần"
+      ],
+      quote: "Khi con người mạnh lên, doanh nghiệp tự khắc lớn lên.",
+      icon: <User />,
+      img: "https://i.ibb.co/JVdjz1S/585460997-844318591689261-6580625915479593595-n-1.jpg" // Ảnh team learning
+    },
+    {
+      id: "02",
+      title: "Chất lượng",
+      intro: "Mọi sản phẩm nội dung và hệ thống MMO tại Sano Media đều được xây dựng trên:",
+      list: [
+        "Tiêu chuẩn rõ ràng",
+        "Quy trình kỷ luật",
+        "Cam kết không ngừng nâng cao chất lượng"
+      ],
+      quote: "Chúng tôi không chạy theo số lượng ngắn hạn, mà theo đuổi giá trị lâu dài và uy tín bền vững.",
+      icon: <Award />,
+      img: "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?auto=format&fit=crop&q=80" // Ảnh laptop/work
+    },
+    {
+      id: "03",
+      title: "Đổi mới – Thích nghi",
+      intro: "Thế giới MMO thay đổi liên tục. Chúng tôi chủ động:",
+      list: [
+        "Nghiên cứu xu hướng",
+        "Ứng dụng công nghệ mới",
+        "Liên tục thử nghiệm và cải tiến"
+      ],
+      quote: "Không đổi mới đồng nghĩa với tụt hậu.",
+      icon: <Zap />,
+      img: "https://i.ibb.co/5XJC93TF/2b479c56-79af-4ec0-ab48-acead63d3d87.jpg" // Ảnh công nghệ
+    },
+    {
+      id: "04",
+      title: "Chính trực",
+      intro: "Sự chính trực là nền tảng cho mọi quyết định và hành động. Sano Media cam kết:",
+      list: [
+        "Minh bạch trong cơ hội và lợi ích",
+        "Công bằng trong đánh giá và trao quyền",
+        "Tôn trọng lẫn nhau trong hợp tác"
+      ],
+      quote: "Không đánh đổi đạo đức để lấy tăng trưởng ngắn hạn.",
+      icon: <ShieldCheck />,
+      img: "https://i.ibb.co/wNjs0M7R/istockphoto-1480535737-612x612.jpg" // Ảnh bắt tay
+    },
+    {
+      id: "05",
+      title: "Cùng phát triển – Cùng WIN",
+      intro: "Sano Media không chỉ xây dựng một công ty, mà xây dựng một cộng đồng cùng phát triển. Chúng tôi:",
+      list: [
+        "Chia sẻ cơ hội",
+        "Đồng hành lâu dài",
+        "Đầu tư cho những người muốn đi xa hơn và giàu hơn"
+      ],
+      quote: "Công ty phát triển – nhân sự phải phát triển. Không ai bị bỏ lại phía sau.",
+      icon: <Users />,
+      img: "https://i.ibb.co/39PPG8kS/businesswomen-giving-hi-five-touching-260nw-2201705007.jpg" // Ảnh high-five
+    }
+  ];
   return (
     <main className={styles.wrapper}>
-      
+
       {/* 1. HERO BANNER */}
       <section className={styles.heroSection}>
         <div className={styles.bgImage}>
-           <Image 
-             src={IMAGES.ABOUT.BANNER} // Ảnh văn phòng/team
-             alt="Core Values Hero" 
-             fill 
-             priority
-           />
+          <Image
+            src={IMAGES.ABOUT.BANNER} // Ảnh văn phòng/team
+            alt="Core Values Hero"
+            fill
+            priority
+          />
         </div>
         <div className={styles.heroContent}>
           <span className={styles.label}>DNA Của Sano Media</span>
           <h1>Giá trị cốt lõi</h1>
           <p>
-            4 nguyên tắc vàng định hình tư duy, hành động và 6 giá trị văn hóa cốt lõi <br/>
-            của mỗi thành viên trong đại gia đình Sano.
+            <b>Phát Triển Con Người - Sáng Tạo - Kỷ luật – Nghĩ Lớn</b>
           </p>
         </div>
       </section>
@@ -33,104 +176,52 @@ export default function CoreValuesPage() {
       {/* 2. VALUES LIST */}
       <section className={styles.valuesSection}>
         <div className={styles.container}>
-          
-          <div className={styles.introText}>
-            <h2>Bộ gen của người dẫn đầu</h2>
+
+          {/* <div className={styles.introText}>
+            <h2>Hệ quy chiếu hành động</h2>
             <p>
-              Để hiện thực hóa tầm nhìn 2030, chúng tôi không chỉ dựa vào chiến lược, 
-              mà dựa vào sự đồng lòng của tập thể mang chung một bộ gen văn hóa.
+              Đây không phải khẩu hiệu. Đây là cách chúng tôi sống, làm việc
+              và ra quyết định mỗi ngày.
             </p>
-          </div>
+          </div> */}
 
           <div className={styles.valuesList}>
-            
-            {/* VALUE 1: CON NGƯỜI */}
-            <div className={styles.valueCard}>
-              <div className={styles.bgImage}>
-                <Image 
-                quality={70}
-                  src="https://i.ibb.co/JVdjz1S/585460997-844318591689261-6580625915479593595-n-1.jpg" // Ảnh học tập/làm việc
-                  alt="People" fill 
-                />
-              </div>
-              <div className={styles.overlay}></div>
-              <div className={styles.content}>
-                <span className={styles.indexNumber}>01</span>
-                <div className={styles.iconWrapper}><BookOpen /></div>
-                <h3>Phát triển con người</h3>
-                <p>
-                  Chúng tôi tin rằng "Đầu tư vào tri thức là khoản đầu tư siêu lợi nhuận". 
-                  Tại Sano, văn hóa học tập trọn đời (Lifelong Learning) được đề cao hàng đầu. 
-                  Mỗi cá nhân lớn lên thì tổ chức mới lớn mạnh.
-                </p>
-              </div>
-            </div>
+            {coreValues.map((item) => (
+              <div key={item.id} className={styles.valueCard}>
 
-            {/* VALUE 2: SÁNG TẠO */}
-            <div className={styles.valueCard}>
-              <div className={styles.bgImage}>
-                <Image 
-                quality={70}
-                  src="https://i.ibb.co/4RqZNGj2/01-XL8986-1.jpg" // Ảnh sáng tạo/bóng đèn
-                  alt="Innovation" fill 
-                />
-              </div>
-              <div className={styles.overlay}></div>
-              <div className={styles.content}>
-                <span className={styles.indexNumber}>02</span>
-                <div className={styles.iconWrapper}><Lightbulb /></div>
-                <h3>Sáng tạo đổi mới</h3>
-                <p>
-                  "Thách thức lối mòn - Phá vỡ giới hạn". Trong thế giới nội dung số thay đổi từng giây, 
-                  đứng yên nghĩa là tụt lùi. Chúng tôi khuyến khích những ý tưởng điên rồ nhất 
-                  và chấp nhận sai lầm để tìm ra cái mới.
-                </p>
-              </div>
-            </div>
+                {/* CỘT CONTENT (70%) */}
+                <div className={styles.contentSide}>
+                  <div className={styles.headerRow}>
+                    <div className={styles.iconWrapper}>{item.icon}</div>
+                    <h3>{item.title}</h3>
+                  </div>
 
-            {/* VALUE 3: KỶ LUẬT */}
-            <div className={styles.valueCard}>
-              <div className={styles.bgImage}>
-                <Image 
-                quality={70}
-                  src="https://i.ibb.co/mCX71V59/539073780-773073298813791-3355023922934736797-n.jpg" // Ảnh Team đồng lòng/Thể thao
-                  alt="Discipline" fill 
-                />
-              </div>
-              <div className={styles.overlay}></div>
-              <div className={styles.content}>
-                <span className={styles.indexNumber}>03</span>
-                <div className={styles.iconWrapper}><ShieldCheck /></div>
-                <h3>Kỷ luật thép</h3>
-                <p>
-                  Sức mạnh của tập thể đến từ sự tuân thủ. Chúng tôi làm việc với tinh thần trách nhiệm cao nhất, 
-                  cam kết đúng deadline và quy trình. Tự do trong sáng tạo, nhưng kỷ luật trong hành động.
-                </p>
-              </div>
-            </div>
+                  {/* Dẫn nhập */}
+                  <p className={styles.introDesc}>{item.intro}</p>
 
-            {/* VALUE 4: NGHĨ LỚN */}
-            <div className={styles.valueCard}>
-              <div className={styles.bgImage}>
-                <Image 
-                quality={70}
-                  src="https://i.ibb.co/p6Kmvzx6/595146045-860013056786481-2102202801764208385-n.jpg" // Ảnh vũ trụ/trái đất
-                  alt="Think Big" fill 
-                />
-              </div>
-              <div className={styles.overlay}></div>
-              <div className={styles.content}>
-                <span className={styles.indexNumber}>04</span>
-                <div className={styles.iconWrapper}><Rocket /></div>
-                <h3>Nghĩ lớn (Think Big)</h3>
-                <p>
-                  Dám mơ những giấc mơ lớn. Đặt ra những mục tiêu thách thức (Moonshot Goals) 
-                  để kích thích tiềm năng vô hạn bên trong mỗi người. 
-                  Không chấp nhận sự tầm thường (Mediocrity).
-                </p>
-              </div>
-            </div>
+                  {/* List gạch đầu dòng */}
+                  {item.list && (
+                    <ul>
+                      {item.list.map((li, idx) => (
+                        <li key={idx}>{li}</li>
+                      ))}
+                    </ul>
+                  )}
 
+                  {/* Quote */}
+                  <div className={styles.quoteBox}>
+                    <p>{item.quote}</p>
+                  </div>
+                </div>
+
+                {/* CỘT HÌNH ẢNH (30%) */}
+                <div className={styles.imageSide}>
+                  <Image src={item.img} alt={item.title} fill />
+                  <span className={styles.indexNumber}>{item.id}</span>
+                </div>
+
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -150,223 +241,61 @@ export default function CoreValuesPage() {
       </section> */}
 
       {/* 2. VALUES LIST (8 GIÁ TRỊ TỪ FILE EXCEL) */}
-      <section className={styles.valuesSection}>
+      <section className={styles.heroSection}>
+        <div className={styles.bgImage}>
+          <Image
+            src={IMAGES.SANO_LIFE.OFFICE}
+            alt="Core Values Hero" fill priority
+          />
+        </div>
+        <div className={styles.heroContent}>
+          <h1>Văn hóa cốt lõi</h1>
+          <p>8 nguyên tắc vàng và bộ quy tắc ứng xử của người Sano Media</p>
+        </div>
+      </section>
+
+      {/* 2. VALUES LIST (8 GIÁ TRỊ) */}
+      <section className={styles.valuesSection_1}>
         <div className={styles.container}>
-          
-          <div className={styles.introText}>
-            <h2>Giá trị văn hóa cốt lõi Sano</h2>
-            <p>
-              Chúng tôi không xây dựng văn hóa trên giấy tờ. Đây là những hành động thực tế 
-              được thực hiện hàng ngày, hàng giờ bởi mỗi thành viên.
-            </p>
-          </div>
-
           <div className={styles.valuesList}>
-            
-            {/* 1. HỌC TẬP SUỐT ĐỜI */}
-            <div className={styles.valueCard}>
-              <div className={styles.bgImage}>
-                <Image src="https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?auto=format&fit=crop&q=80" alt="Learning" fill />
-              </div>
-              <div className={styles.overlay}></div>
-              <div className={styles.content}>
-                <span className={styles.indexNumber}>01</span>
-                <div className={styles.iconWrapper}><BookOpen /></div>
-                <h3>Học tập suốt đời</h3>
-                <p className={styles.definition}>MMO thay đổi liên tục. Không học = Tự loại mình.</p>
-                <p className={styles.action}>
-                  Hành động: Mỗi ngày học thêm 1 kỹ năng mới, tư duy mới, cách làm mới. 
-                  Liên tục cập nhật kiến thức để không bị bỏ lại phía sau.
-                </p>
-              </div>
-            </div>
+            {values.map((item) => (
+              <div key={item.id} className={styles.valueCard}>
+                <div className={styles.bgImage}>
+                  <Image src={item.img} alt={item.title} fill />
+                </div>
+                <div className={styles.overlay}></div>
 
-            {/* 2. THÁI ĐỘ TÍCH CỰC */}
-            <div className={styles.valueCard}>
-              <div className={styles.bgImage}>
-                <Image src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&q=80" alt="Positive" fill />
-              </div>
-              <div className={styles.overlay}></div>
-              <div className={styles.content}>
-                <span className={styles.indexNumber}>02</span>
-                <div className={styles.iconWrapper}><Lightbulb /></div>
-                <h3>Thái độ tích cực</h3>
-                <p className={styles.definition}>Có vấn đề → Đưa giải pháp. Không than vãn, không đổ lỗi.</p>
-                <p className={styles.action}>
-                  Hành động: Thay vì phàn nàn, hãy tư duy đề xuất giải pháp để giải quyết vấn đề. 
-                  Giữ năng lượng tích cực để lan toả đến đồng đội.
-                </p>
-              </div>
-            </div>
+                <div className={styles.content}>
+                  <span className={styles.indexNumber}>{item.id}</span>
+                  <div className={styles.iconWrapper}>{item.icon}</div>
 
-            {/* 3. SỰ CÔNG NHẬN */}
-            <div className={styles.valueCard}>
-              <div className={styles.bgImage}>
-                <Image src="https://images.unsplash.com/photo-1531545514256-b1400bc00f31?auto=format&fit=crop&q=80" alt="Recognition" fill />
+                  <h3>{item.title}</h3>
+                  <p className={styles.mainDesc}>{item.desc}</p>
+                  <p className={styles.subDesc}>
+                    <strong style={{ color: '#fff' }}>Hành động:</strong> {item.action}
+                  </p>
+                </div>
               </div>
-              <div className={styles.overlay}></div>
-              <div className={styles.content}>
-                <span className={styles.indexNumber}>03</span>
-                <div className={styles.iconWrapper}><Trophy /></div>
-                <h3>Sự công nhận</h3>
-                <p className={styles.definition}>Làm tốt phải được ghi nhận công bằng - minh bạch.</p>
-                <p className={styles.action}>
-                  Hành động: Ghi nhận kịp thời cá nhân/team có kết quả tốt hoặc ý tưởng sáng tạo. 
-                  Tạo động lực để nhân sự cống hiến hết mình.
-                </p>
-              </div>
-            </div>
-
-            {/* 4. ĐOÀN KẾT */}
-            <div className={styles.valueCard}>
-              <div className={styles.bgImage}>
-                <Image src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&q=80" alt="Unity" fill />
-              </div>
-              <div className={styles.overlay}></div>
-              <div className={styles.content}>
-                <span className={styles.indexNumber}>04</span>
-                <div className={styles.iconWrapper}><Users /></div>
-                <h3>Đoàn kết</h3>
-                <p className={styles.definition}>Hướng về mục tiêu chung để cùng WIN.</p>
-                <p className={styles.action}>
-                  Hành động: Luôn giữ tinh thần sẵn sàng giúp đỡ và hỗ trợ tất cả mọi người. 
-                  Thành công của đồng đội cũng là thành công của chính mình.
-                </p>
-              </div>
-            </div>
-
-            {/* 5. KỶ LUẬT */}
-            <div className={styles.valueCard}>
-              <div className={styles.bgImage}>
-                <Image src="https://images.unsplash.com/photo-1506784983877-45594efa4cbe?auto=format&fit=crop&q=80" alt="Discipline" fill />
-              </div>
-              <div className={styles.overlay}></div>
-              <div className={styles.content}>
-                <span className={styles.indexNumber}>05</span>
-                <div className={styles.iconWrapper}><ShieldCheck /></div>
-                <h3>Kỷ luật</h3>
-                <p className={styles.definition}>Kỷ luật là thước đo giá trị của 1 người.</p>
-                <p className={styles.action}>
-                  Hành động: Tuân thủ tuyệt đối quy trình, quy định của công ty. 
-                  Làm việc đúng giờ, đúng deadline và đúng chất lượng cam kết.
-                </p>
-              </div>
-            </div>
-
-             {/* 6. PHẢN HỒI - PHẢN BIỆN */}
-             <div className={styles.valueCard}>
-              <div className={styles.bgImage}>
-                <Image src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&q=80" alt="Feedback" fill />
-              </div>
-              <div className={styles.overlay}></div>
-              <div className={styles.content}>
-                <span className={styles.indexNumber}>06</span>
-                <div className={styles.iconWrapper}><MessageSquare /></div>
-                <h3>Phản hồi - Phản biện</h3>
-                <p className={styles.definition}>Không im lặng - Không né tránh trách nhiệm.</p>
-                <p className={styles.action}>
-                  Hành động: Có việc → Phản hồi ngay. Chưa xong → Báo tiến độ. Có vấn đề → Báo sớm. 
-                  Thẳng thắn đóng góp ý kiến để xây dựng tập thể tốt hơn.
-                </p>
-              </div>
-            </div>
-
-            {/* 7. KAIZEN - CẢI TIẾN */}
-            <div className={styles.valueCard}>
-              <div className={styles.bgImage}>
-                <Image src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80" alt="Kaizen" fill />
-              </div>
-              <div className={styles.overlay}></div>
-              <div className={styles.content}>
-                <span className={styles.indexNumber}>07</span>
-                <div className={styles.iconWrapper}><TrendingUp /></div>
-                <h3>Kaizen - Cải tiến liên tục</h3>
-                <p className={styles.definition}>Cải tiến liên tục để nâng cao chất lượng.</p>
-                <p className={styles.action}>
-                  Hành động: Kaizen hàng ngày, hàng tuần. Không chấp nhận sự dậm chân tại chỗ. 
-                  Tối ưu hoá quy trình làm việc để đạt hiệu suất cao hơn.
-                </p>
-              </div>
-            </div>
-
-            {/* 8. KẾT QUẢ = GIÁ TRỊ */}
-            <div className={styles.valueCard}>
-              <div className={styles.bgImage}>
-                <Image src="https://images.unsplash.com/photo-1553729459-efe14ef6055d?auto=format&fit=crop&q=80" alt="Result" fill />
-              </div>
-              <div className={styles.overlay}></div>
-              <div className={styles.content}>
-                <span className={styles.indexNumber}>08</span>
-                <div className={styles.iconWrapper}><Gem /></div>
-                <h3>Kết quả = Giá trị</h3>
-                <p className={styles.definition}>Kết quả lớn - Giá trị càng lớn - Phát triển càng cao.</p>
-                <p className={styles.action}>
-                  Hành động: Tập trung vào hiệu quả cuối cùng. Liên tục tạo ra những kết quả mới, 
-                  những kỷ lục mới để khẳng định năng lực bản thân.
-                </p>
-              </div>
-            </div>
-
+            ))}
           </div>
         </div>
       </section>
 
-      {/* 3. NGUYÊN TẮC (THE PRINCIPLES) - PHẦN MỚI TỪ FILE EXCEL */}
+      {/* 3. CÁC NGUYÊN TẮC (PRINCIPLES) */}
       <section className={styles.principlesSection}>
         <div className={styles.container}>
           <div className={styles.principlesHeader}>
-            <h2>Nguyên tắc & Kỷ luật</h2>
-            <p>Những giới hạn đỏ không được phép vi phạm tại Sano Media</p>
+            <h2>Các nguyên tắc bất di bất dịch</h2>
+            <p>Kỷ luật là sức mạnh - Văn hóa là sự sống còn</p>
           </div>
 
           <div className={styles.principlesGrid}>
-            <div className={styles.principleItem}>
-              <div className={styles.pIcon}><AlertTriangle size={20}/></div>
-              <p>
-                <strong>Không phản hồi, phản biện</strong>
-                <span>→ Trừ điểm thi đua / Đánh giá KPI</span>
-              </p>
-            </div>
-            
-            <div className={styles.principleItem}>
-              <div className={styles.pIcon}><AlertTriangle size={20}/></div>
-              <p>
-                <strong>Than phiền mà không có giải pháp</strong>
-                <span>→ Nhắc nhở 1 lần, Tái phạm 3 lần loại</span>
-              </p>
-            </div>
-
-            <div className={styles.principleItem}>
-              <div className={styles.pIcon}><AlertTriangle size={20}/></div>
-              <p>
-                <strong>Không đạt mục tiêu liên tiếp</strong>
-                <span>→ Xem lại vai trò & vị trí công việc</span>
-              </p>
-            </div>
-
-            <div className={styles.principleItem}>
-              <div className={styles.pIcon}><XCircle size={20}/></div>
-              <p>
-                <strong>Không học – Không tiến bộ</strong>
-                <span>→ Không tăng thu nhập (Đào thải tự nhiên)</span>
-              </p>
-            </div>
-
-            <div className={styles.principleItem}>
-              <div className={styles.pIcon}><XCircle size={20}/></div>
-              <p>
-                <strong>Phá đoàn kết nội bộ</strong>
-                <span>→ Loại khỏi hệ thống ngay lập tức</span>
-              </p>
-            </div>
-
-            <div className={styles.principleItem}>
-              <div className={styles.pIcon}><XCircle size={20}/></div>
-              <p>
-                <strong>Không phù hợp văn hóa</strong>
-                <span>→ Không giữ, dù giỏi đến đâu</span>
-              </p>
-            </div>
+            {principles.map((text, index) => (
+              <div key={index} className={styles.principleItem}>
+                <AlertTriangle size={24} color='red'/>
+                <p>{text}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>

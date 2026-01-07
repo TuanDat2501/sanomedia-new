@@ -6,12 +6,11 @@
 }
 
 .container {
-  max-width: 1200px; // Thu hẹp container một chút để card trông tập trung hơn
+  max-width: 1200px; // Mở rộng container để Card thoáng hơn
   margin: 0 auto;
   padding: 0 24px;
 }
 
-// --- 1. HERO BANNER (GIỐNG TRANG VISION) ---
 .heroSection {
   height: 500px;
   position: relative;
@@ -73,6 +72,7 @@
       margin-bottom: 20px;
       line-height: 1.2;
       color: #fff;
+
       @include mobile {
         font-size: 2.2rem;
       }
@@ -82,21 +82,21 @@
       font-size: 1.2rem;
       font-weight: 300;
       opacity: 0.9;
-      color:#fff;
+      color: #fff;
       line-height: 1.6;
     }
   }
 }
 
-// --- 2. CORE VALUES LIST (DANH SÁCH GIÁ TRỊ) ---
+// --- VALUES SECTION (ZIG-ZAG LAYOUT) ---
 .valuesSection {
-  padding: 100px 0 150px;
-  background: #fff;
+  padding: 100px 0;
+  background: #f4f6f8; // Nền trang xám nhẹ để Card trắng nổi bật
 }
 
 .introText {
   text-align: center;
-  max-width: 700px;
+  max-width: 800px;
   margin: 0 auto 80px;
 
   h2 {
@@ -116,204 +116,360 @@
 .valuesList {
   display: flex;
   flex-direction: column;
-  gap: 40px; // Khoảng cách giữa các card
+  gap: 60px;
 }
 
 .valueCard {
-  position: relative;
-  height: 450px; // Card cao lớn
+  display: flex;
+  background: #fff;
   border-radius: 24px;
   overflow: hidden;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-  transition: all 0.4s ease;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.05);
+  min-height: 450px; // Tăng chiều cao xíu vì nội dung dài
+  transition: transform 0.3s ease;
 
-  // Ảnh nền
-  .bgImage {
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 0;
+  // --- LOGIC SO LE (ZIG-ZAG) ---
+  &:nth-child(even) {
+    flex-direction: row-reverse;
 
-    img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: transform 0.8s ease;
+    .contentSide {
+      padding-left: 60px;
+      padding-right: 40px;
+      background: linear-gradient(to left, #fff 80%, #fafafa 100%);
     }
   }
 
-  // Overlay tối
-  .overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(to right, rgba(0, 0, 0, 0.85) 0%, rgba(0, 0, 0, 0.7) 60%, transparent 100%);
-    z-index: 1;
-    transition: background 0.4s;
-  }
-
-  // Nội dung (Số thứ tự + Text)
-  .content {
-    position: relative;
-    z-index: 2;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding: 0 80px; // Padding lớn để sang trọng
-    color: #fff;
-    max-width: 650px;
-
-    @include mobile {
-      padding: 30px;
-    }
-
-    .indexNumber {
-      font-size: 5rem;
-      font-weight: 900;
-      color: rgba(255, 255, 255, 0.5); // Số mờ làm nền
-      line-height: 1;
-      position: absolute;
-      top: 40px;
-      right: 40px;
-      pointer-events: none;
-    }
-
-    .iconWrapper {
-      width: 70px;
-      height: 70px;
-      background: rgba(255, 255, 255, 0.1);
-      backdrop-filter: blur(10px);
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      color: #fff;
-      border-radius: 16px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-bottom: 30px;
-      transition: all 0.3s;
-
-      svg {
-        width: 35px;
-        height: 35px;
-      }
-    }
-
-    h3 {
-      font-size: 2.2rem;
-      font-weight: 800;
-      margin-bottom: 15px;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-    }
-
-    p {
-      font-size: 1.1rem;
-      color: rgba(255, 255, 255, 0.9);
-      line-height: 1.7;
-    }
-  }
-
-  // --- HOVER EFFECT ---
   &:hover {
     transform: translateY(-5px);
-    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.25);
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.1);
 
-    .bgImage img {
+    .imageSide img {
       transform: scale(1.05);
     }
 
     .iconWrapper {
       background: $primary-red;
+      color: #fff;
       border-color: $primary-red;
-    }
-
-    // Số thứ tự sáng lên chút
-    .indexNumber {
-      color: rgba(255, 255, 255, 0.2);
-      transform: scale(1.1);
-      transition: transform 0.5s;
     }
   }
 
-  // --- ĐẢO CHIỀU CARD CHẴN (ZIG-ZAG) ---
-  // Nếu muốn card chẵn căn phải, dùng code dưới. 
-  // Nhưng với thiết kế Background Image này, căn trái hết (như trên) thường đẹp và đồng bộ hơn.
+  // --- CỘT CONTENT (70%) ---
+  .contentSide {
+    flex: 0 0 70%;
+    padding: 50px 40px 50px 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    .headerRow {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      margin-bottom: 20px;
+
+      .iconWrapper {
+        width: 50px;
+        height: 50px;
+        background: #fff;
+        border: 1px solid #eee;
+        color: $primary-red;
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.3s;
+        flex-shrink: 0;
+      }
+
+      h3 {
+        font-size: 1.8rem;
+        font-weight: 800;
+        color: #000;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+      }
+    }
+
+    // Đoạn dẫn nhập
+    .introDesc {
+      font-size: 1.05rem;
+      color: #444;
+      margin-bottom: 15px;
+      font-weight: 500;
+      line-height: 1.6;
+    }
+
+    // Danh sách gạch đầu dòng
+    ul {
+      list-style: none;
+      padding: 0;
+      margin-bottom: 20px;
+
+      li {
+        position: relative;
+        padding-left: 25px;
+        margin-bottom: 8px;
+        font-size: 1rem;
+        color: #555;
+
+        &::before {
+          content: '•';
+          color: $primary-red;
+          font-size: 1.5rem;
+          line-height: 0.7;
+          position: absolute;
+          left: 0;
+          top: 2px;
+        }
+      }
+    }
+
+    // Câu chốt (Quote)
+    .quoteBox {
+      background: #fff5f5; // Nền đỏ rất nhạt
+      border-left: 4px solid $primary-red;
+      padding: 15px 20px;
+      border-radius: 0 8px 8px 0;
+
+      p {
+        font-size: 1rem;
+        color: $primary-dark;
+        font-weight: 700;
+        font-style: italic;
+        margin: 0;
+        line-height: 1.5;
+      }
+    }
+  }
+
+  // --- CỘT HÌNH ẢNH (30%) ---
+  .imageSide {
+    flex: 0 0 30%;
+    position: relative;
+    overflow: hidden;
+    background: #000;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.8;
+      transition: transform 0.6s ease;
+    }
+
+    .indexNumber {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 8rem;
+      font-weight: 900;
+      z-index: 2;
+      line-height: 1;
+      -webkit-text-stroke: 2px rgba(255, 255, 255, 1);
+      color: transparent;
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7));
+      pointer-events: none;
+    }
+  }
+
+  @include mobile {
+    flex-direction: column-reverse !important;
+    height: auto;
+
+    .contentSide {
+      flex: auto;
+      width: 100%;
+      padding: 30px 20px;
+    }
+
+    .imageSide {
+      flex: auto;
+      height: 200px;
+      width: 100%;
+
+      .indexNumber {
+        font-size: 5rem;
+      }
+    }
+  }
 }
+
+// --- ĐẢO CHIỀU CARD CHẴN (ZIG-ZAG) ---
+// Nếu muốn card chẵn căn phải, dùng code dưới. 
+// Nhưng với thiết kế Background Image này, căn trái hết (như trên) thường đẹp và đồng bộ hơn.
+
 
 
 // ... (Giữ nguyên các phần heroSection, container, introText cũ) ...
 
 // --- 2. CORE VALUES LIST (Giữ nguyên style Card cũ) ---
-.valuesSection {
+.valuesSection_1 {
   padding: 100px 0;
   background: #fff;
-}
 
-.valuesList {
-  display: flex;
-  flex-direction: column;
-  gap: 40px;
-}
-
-.valueCard {
-  // ... (Giữ nguyên code style Card của phiên bản trước) ...
-  // Lưu ý: Đảm bảo bạn đã copy đầy đủ class .valueCard, .bgImage, .overlay, .content... 
-  // từ câu trả lời trước nhé.
-  position: relative;
-  height: 450px;
-  border-radius: 24px;
-  overflow: hidden;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-  transition: all 0.4s ease;
-
-  .bgImage {
-    width: 100%; height: 100%; position: absolute; top: 0; left: 0; z-index: 0;
-    img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.8s ease; }
+  .container {
+    max-width: 1200px; // Thu hẹp container một chút để card trông tập trung hơn
+    margin: 0 auto;
+    padding: 0 24px;
   }
 
-  .overlay {
-    position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-    background: linear-gradient(to right, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.5) 60%, transparent 100%);
-    z-index: 1; transition: background 0.4s;
+  .valuesList {
+    display: grid;
+    // THAY ĐỔI QUAN TRỌNG: Chia thành 2 cột đều nhau
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px; // Khoảng cách giữa các ô
+
+    // Mobile vẫn giữ 1 cột để dễ đọc
+    @include mobile {
+      grid-template-columns: 1fr;
+    }
   }
 
-  .content {
-    position: relative; z-index: 2; height: 100%;
-    display: flex; flex-direction: column; justify-content: center;
-    padding: 0 60px; color: #fff; max-width: 700px;
-    
-    @include mobile { padding: 30px; }
+  .valueCard {
+    // ... (Giữ nguyên code style Card của phiên bản trước) ...
+    // Lưu ý: Đảm bảo bạn đã copy đầy đủ class .valueCard, .bgImage, .overlay, .content... 
+    // từ câu trả lời trước nhé.
+    position: relative;
+    height: 450px;
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    transition: all 0.4s ease;
 
-    .indexNumber {
-      font-size: 5rem; font-weight: 900; color: rgba(255,255,255,0.1);
-      position: absolute; top: 30px; right: 30px; pointer-events: none;
+    .bgImage {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 0;
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.8s ease;
+      }
     }
 
-    .iconWrapper {
-      width: 60px; height: 60px; background: rgba(255,255,255,0.1); backdrop-filter: blur(10px);
-      border: 1px solid rgba(255,255,255,0.2); color: #fff; border-radius: 12px;
-      display: flex; align-items: center; justify-content: center; margin-bottom: 25px;
-      svg { width: 30px; height: 30px; }
+    .overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.8);
+      z-index: 1;
+      transition: background 0.4s;
     }
 
-    h3 { font-size: 2rem; font-weight: 800; margin-bottom: 15px; text-transform: uppercase; }
-    
-    // Phần mô tả chia làm 2 dòng: Định nghĩa (Vàng) & Hành động (Trắng)
-    .definition { font-size: 1.1rem; color: #ffd700; font-weight: 700; margin-bottom: 10px; }
-    .action { font-size: 1rem; color: rgba(255,255,255,0.9); line-height: 1.6; }
-  }
+    .content {
+      p {
+        color: #dfdfdf;
+      }
 
-  &:hover {
-    transform: translateY(-5px); box-shadow: 0 25px 60px rgba(0,0,0,0.2);
-    .bgImage img { transform: scale(1.05); }
-    .iconWrapper { background: $primary-red; border-color: $primary-red; }
+      position: relative;
+      z-index: 2;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 0 60px;
+      color: #fff;
+      max-width: 700px;
+
+      @include mobile {
+        padding: 30px;
+      }
+
+      .mainDesc {
+        font-size: 1.1rem;
+        color: rgba(251, 255, 0, 0.9);
+        line-height: 1.7;
+        margin-bottom: 20px;
+        font-weight: 600;
+      }
+
+      .indexNumber {
+        font-size: 5rem;
+        font-weight: 900;
+        color: rgba(255, 255, 255, 0.4);
+        position: absolute;
+        top: 30px;
+        right: 30px;
+        pointer-events: none;
+      }
+
+      .iconWrapper {
+        width: 60px;
+        height: 60px;
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        color: #fff;
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 25px;
+
+        svg {
+          width: 30px;
+          height: 30px;
+        }
+      }
+
+      h3 {
+        font-size: 2rem;
+        font-weight: 800;
+        margin-bottom: 15px;
+        text-transform: uppercase;
+      }
+
+      // Phần mô tả chia làm 2 dòng: Định nghĩa (Vàng) & Hành động (Trắng)
+      .definition {
+        font-size: 1.1rem;
+        color: #ffd700;
+        font-weight: 700;
+        margin-bottom: 10px;
+      }
+
+      .action {
+        font-size: 1rem;
+        color: rgba(255, 255, 255, 0.9);
+        line-height: 1.6;
+      }
+    }
+
+    &:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.2);
+
+      .bgImage img {
+        transform: scale(1.05);
+      }
+
+      .iconWrapper {
+        background: $primary-red;
+        border-color: $primary-red;
+
+      }
+    }
   }
 }
+
+
 
 // --- 3. PRINCIPLES SECTION (MỚI: CÁC NGUYÊN TẮC) ---
 .principlesSection {
@@ -323,21 +479,34 @@
 }
 
 .principlesHeader {
-  text-align: center; margin-bottom: 60px;
-  h2 { font-size: 2.5rem; font-weight: 800; margin-bottom: 10px; color: #fff; }
-  p { color: #888; font-size: 1.1rem; }
+  text-align: center;
+  margin-bottom: 60px;
+
+  h2 {
+    font-size: 2.5rem;
+    font-weight: 800;
+    margin-bottom: 10px;
+    color: #fff;
+  }
+
+  p {
+    color: #d4d4d4;
+    font-size: 1.1rem;
+  }
 }
 
 .principlesGrid {
   display: grid;
   grid-template-columns: repeat(2, 1fr); // 2 Cột
   gap: 30px;
-  
-  @include mobile { grid-template-columns: 1fr; }
+
+  @include mobile {
+    grid-template-columns: 1fr;
+  }
 }
 
 .principleItem {
-  background: rgba(255,255,255,0.05);
+  background: rgba(255, 255, 255, 0.05);
   border-left: 4px solid $primary-red; // Vạch đỏ cảnh báo
   padding: 25px;
   border-radius: 0 8px 8px 0;
@@ -350,8 +519,10 @@
     color: $primary-red;
     min-width: 40px;
     height: 40px;
-    display: flex; align-items: center; justify-content: center;
-    background: rgba(230,0,0,0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(230, 0, 0, 0.1);
     border-radius: 50%;
   }
 
@@ -360,13 +531,21 @@
     font-weight: 500;
     line-height: 1.5;
     margin: 0;
-    
-    strong { color: #fff; }
-    span { color: #aaa; font-size: 0.95rem; display: block; margin-top: 5px;}
+    color: #e0e0e0;
+    strong {
+      color: #fff;
+    }
+
+    span {
+      color: #aaa;
+      font-size: 0.95rem;
+      display: block;
+      margin-top: 5px;
+    }
   }
 
   &:hover {
-    background: rgba(255,255,255,0.1);
+    background: rgba(255, 255, 255, 0.1);
     transform: translateX(10px);
   }
 }
