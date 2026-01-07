@@ -53,7 +53,7 @@ const HomeSections = () => {
             {/* Case 1: Tăng trưởng View */}
             <div className={styles.growthCard}>
               <div className={styles.cardHeader}>
-                <span className={styles.tag}>Dự án: Kids Edutainment</span>
+                {/* <span className={styles.tag}>Dự án: Kids Edutainment</span> */}
                 <h3>Xây kênh từ con số 0</h3>
               </div>
               <div className={styles.chartImage}>
@@ -86,7 +86,7 @@ const HomeSections = () => {
             {/* Case 2: Tăng trưởng Doanh thu */}
             <div className={styles.growthCard}>
               <div className={styles.cardHeader}>
-                <span className={styles.tag}>Dự án: Review Tech</span>
+                {/* <span className={styles.tag}>Dự án: Review Tech</span> */}
                 <h3>Tối ưu doanh thu (RPM)</h3>
               </div>
               <div className={styles.chartImage}>
@@ -119,7 +119,7 @@ const HomeSections = () => {
             {/* Case 3: Viral Campaign */}
             <div className={styles.growthCard}>
               <div className={styles.cardHeader}>
-                <span className={styles.tag}>Dự án: Entertainment</span>
+                {/* <span className={styles.tag}>Dự án: Entertainment</span> */}
                 <h3>Chiến dịch Viral Shorts</h3>
               </div>
               <div className={styles.chartImage}>
