@@ -34,9 +34,9 @@ export const IMAGES = {
 
   // --- TRANG GIỚI THIỆU (ABOUT) ---
   ABOUT: {
-    MISSION: 'https://i.ibb.co/YTN7GYh1/DSC06539.jpg',
+    MISSION: "../image/tamnhin.webp",
     VISION: 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&q=80',
-    BANNER: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80', // Banner chung cho các trang con
+    BANNER: '../image/banner.webp', // Banner chung cho các trang con
   },
 
   // Lãnh đạo
