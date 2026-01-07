@@ -8,82 +8,7 @@ import { BookOpen, Lightbulb, ShieldCheck, Rocket, XCircle, AlertTriangle, Gem, 
 
 export default function CoreValuesPage() {
   // Dữ liệu từ hình ảnh bạn cung cấp
-  const values = [
-    {
-      id: "01",
-      title: "Học tập suốt đời",
-      desc: "MMO thay đổi liên tục. Không học = Tự loại mình.",
-      action: "Mỗi ngày học thêm 1 kỹ năng mới, tư duy mới, cách làm mới.",
-      icon: <BookOpen />,
-      img: "https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?auto=format&fit=crop&q=80" // Ảnh sách vở
-    },
-    {
-      id: "02",
-      title: "Thái độ tích cực",
-      desc: "Có vấn đề → Đưa giải pháp. Không than vãn, không đổ lỗi.",
-      action: "Tư duy luôn hướng về việc đề xuất giải pháp để giải quyết vấn đề.",
-      icon: <Smile />,
-      img: "https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&q=80" // Ảnh nhóm vui vẻ
-    },
-    {
-      id: "03",
-      title: "Sự công nhận",
-      desc: "Làm tốt phải được ghi nhận công bằng và minh bạch.",
-      action: "Ghi nhận cá nhân và team có kết quả tốt, có ý tưởng sáng tạo.",
-      icon: <Award />,
-      img: "https://i.ibb.co/cXC8KgT3/MBO-85-300x204.webp" // Ảnh cúp vàng
-    },
-    {
-      id: "04",
-      title: "Đoàn kết",
-      desc: "Hướng về mục tiêu chung để cùng WIN.",
-      action: "Luôn giữ tinh thần giúp đỡ tất cả mọi người trong đội ngũ.",
-      icon: <Users />,
-      img: "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&q=80" // Ảnh nắm tay/Team
-    },
-    {
-      id: "05",
-      title: "Kỷ luật",
-      desc: "Kỷ luật là thước đo giá trị của một người.",
-      action: "Tuân thủ tuyệt đối quy trình và quy định của tổ chức.",
-      icon: <ShieldCheck />,
-      img: "https://images.unsplash.com/photo-1461896836934-ffe607ba8211?auto=format&fit=crop&q=80" // Ảnh thể thao/chạy bộ
-    },
-    {
-      id: "06",
-      title: "Phản hồi - Phản biện",
-      desc: "Không im lặng - Không né tránh trách nhiệm.",
-      action: "Có việc → Phản hồi ngay. Chưa xong → Báo tiến độ. Có vấn đề → Báo sớm.",
-      icon: <MessageSquare />,
-      img: "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&q=80" // Ảnh họp hành
-    },
-    {
-      id: "07",
-      title: "Kaizen - Cải tiến",
-      desc: "Cải tiến liên tục để nâng cao chất lượng.",
-      action: "Kaizen hàng ngày, hàng tuần. Ngày hôm nay phải tốt hơn hôm qua.",
-      icon: <RefreshCw />,
-      img: "https://i.ibb.co/5WFJ5Js6/646bc26a809a7e252cb85d96be615b22.jpg" // Ảnh mũi tên lên/Growth
-    },
-    {
-      id: "08",
-      title: "Kết quả = Giá trị",
-      desc: "Kết quả lớn = Giá trị càng lớn = Phát triển càng cao.",
-      action: "Tập trung liên tục tạo ra những kết quả mới.",
-      icon: <Target />,
-      img: "https://images.unsplash.com/photo-1533422902779-aff35862e462?auto=format&fit=crop&q=80" // Ảnh đích đến
-    },
-  ];
-
-  // Dữ liệu Nguyên tắc (Từ phần dưới ảnh)
-  const principles = [
-    "Không phản hồi, phản biện → Trừ điểm.",
-    "Than phiền mà không tập trung giải pháp → Nhắc 1 lần, tái phạm 3 lần loại.",
-    "Không đạt mục tiêu liên tiếp → Xem lại vai trò.",
-    "Không học – Không tiến bộ → Không tăng thu nhập.",
-    "Phá đoàn kết → Loại khỏi hệ thống.",
-    "Không phù hợp văn hóa → Không giữ, dù giỏi đến đâu."
-  ];
+  
   const coreValues = [
     {
       id: "01",
@@ -241,7 +166,7 @@ export default function CoreValuesPage() {
       </section> */}
 
       {/* 2. VALUES LIST (8 GIÁ TRỊ TỪ FILE EXCEL) */}
-      <section className={styles.heroSection}>
+     {/*  <section className={styles.heroSection}>
         <div className={styles.bgImage}>
           <Image
             src={IMAGES.SANO_LIFE.OFFICE}
@@ -252,10 +177,10 @@ export default function CoreValuesPage() {
           <h1>Văn hóa cốt lõi</h1>
           <p>8 nguyên tắc vàng và bộ quy tắc ứng xử của người Sano Media</p>
         </div>
-      </section>
+      </section> */}
 
       {/* 2. VALUES LIST (8 GIÁ TRỊ) */}
-      <section className={styles.valuesSection_1}>
+      {/* <section className={styles.valuesSection_1}>
         <div className={styles.container}>
           <div className={styles.valuesList}>
             {values.map((item) => (
@@ -280,8 +205,6 @@ export default function CoreValuesPage() {
           </div>
         </div>
       </section>
-
-      {/* 3. CÁC NGUYÊN TẮC (PRINCIPLES) */}
       <section className={styles.principlesSection}>
         <div className={styles.container}>
           <div className={styles.principlesHeader}>
@@ -298,7 +221,7 @@ export default function CoreValuesPage() {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
     </main>
   );
 }

@@ -26,7 +26,7 @@ export default function VisionMissionPage() {
 
         <div className={styles.heroContent}>
           <span className={styles.label}>Kim chỉ nam hoạt động</span>
-          <h1>Tầm nhìn & Sứ mệnh</h1>
+          <h1>Sứ mệnh</h1>
           <p>
             "Giáo dục người xem qua Video Content giá trị." <br />
             Đó là lời cam kết xuyên suốt của Sano Media từ những ngày đầu thành lập.
@@ -41,7 +41,7 @@ export default function VisionMissionPage() {
             <div className={styles.visionText}>
               <h2>
                 {/* <span className={styles.year}>2030</span> */}
-                Tập đoàn MMO Đa ngành
+                Tầm nhìn
               </h2>
               <p>
                 Trở thành biểu tượng trong ngành sáng tạo nội dung số.

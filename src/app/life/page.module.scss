@@ -313,3 +313,318 @@
     color: #fff;
   }
 }
+
+.vibeSection {
+  padding: 100px 0;
+  background-color: #fff; // Hoặc #f9f9f9 nếu muốn tách biệt
+}
+
+.vibeHeader {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto 60px;
+
+  .label {
+    display: inline-block;
+    font-size: 0.9rem; font-weight: 700; color: $primary-red;
+    text-transform: uppercase; letter-spacing: 2px;
+    margin-bottom: 15px;
+    background: rgba(230, 0, 0, 0.1); padding: 5px 15px; border-radius: 20px;
+  }
+
+  h2 {
+    font-size: 2.5rem; font-weight: 800; color: #000; margin-bottom: 20px;
+    @include mobile { font-size: 2rem; }
+  }
+  
+  p { font-size: 1.1rem; color: #555; line-height: 1.6; }
+}
+
+.vibeGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+
+  @include mobile { grid-template-columns: 1fr; }
+}
+
+.vibeCard {
+  background: #fff;
+  border: 1px solid #eee;
+  border-radius: 20px;
+  padding: 40px 30px;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+
+  // Icon nổi bật
+  .iconBox {
+    width: 70px; height: 70px;
+    background: #fff5f5; // Đỏ rất nhạt
+    color: $primary-red;
+    border-radius: 16px;
+    display: flex; align-items: center; justify-content: center;
+    margin-bottom: 25px;
+    font-size: 1.5rem;
+    transition: all 0.3s;
+    
+    svg { width: 35px; height: 35px; }
+  }
+
+  h3 {
+    font-size: 1.4rem; font-weight: 700; color: #000; margin-bottom: 15px;
+  }
+
+  p {
+    font-size: 1rem; color: #666; line-height: 1.6;
+  }
+
+  // Hover Effect
+  &:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+    border-color: transparent;
+
+    .iconBox {
+      background: $primary-red;
+      color: #fff;
+      transform: rotateY(180deg); // Xoay icon vui mắt
+    }
+  }
+}
+
+.valuesSection_1 {
+  padding: 100px 0;
+  background: #fff;
+
+  .container {
+    max-width: 1200px; // Thu hẹp container một chút để card trông tập trung hơn
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  .valuesList {
+    display: grid;
+    // THAY ĐỔI QUAN TRỌNG: Chia thành 2 cột đều nhau
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px; // Khoảng cách giữa các ô
+
+    // Mobile vẫn giữ 1 cột để dễ đọc
+    @include mobile {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .valueCard {
+    // ... (Giữ nguyên code style Card của phiên bản trước) ...
+    // Lưu ý: Đảm bảo bạn đã copy đầy đủ class .valueCard, .bgImage, .overlay, .content... 
+    // từ câu trả lời trước nhé.
+    position: relative;
+    height: 450px;
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    transition: all 0.4s ease;
+
+    .bgImage {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 0;
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.8s ease;
+      }
+    }
+
+    .overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.8);
+      z-index: 1;
+      transition: background 0.4s;
+    }
+
+    .content {
+      p {
+        color: #dfdfdf;
+      }
+
+      position: relative;
+      z-index: 2;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 0 60px;
+      color: #fff;
+      max-width: 700px;
+
+      @include mobile {
+        padding: 30px;
+      }
+
+      .mainDesc {
+        font-size: 1.1rem;
+        color: rgba(251, 255, 0, 0.9);
+        line-height: 1.7;
+        margin-bottom: 20px;
+        font-weight: 600;
+      }
+
+      .indexNumber {
+        font-size: 5rem;
+        font-weight: 900;
+        color: rgba(255, 255, 255, 0.4);
+        position: absolute;
+        top: 30px;
+        right: 30px;
+        pointer-events: none;
+      }
+
+      .iconWrapper {
+        width: 60px;
+        height: 60px;
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        color: #fff;
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 25px;
+
+        svg {
+          width: 30px;
+          height: 30px;
+        }
+      }
+
+      h3 {
+        font-size: 2rem;
+        font-weight: 800;
+        margin-bottom: 15px;
+        text-transform: uppercase;
+      }
+
+      // Phần mô tả chia làm 2 dòng: Định nghĩa (Vàng) & Hành động (Trắng)
+      .definition {
+        font-size: 1.1rem;
+        color: #ffd700;
+        font-weight: 700;
+        margin-bottom: 10px;
+      }
+
+      .action {
+        font-size: 1rem;
+        color: rgba(255, 255, 255, 0.9);
+        line-height: 1.6;
+      }
+    }
+
+    &:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.2);
+
+      .bgImage img {
+        transform: scale(1.05);
+      }
+
+      .iconWrapper {
+        background: $primary-red;
+        border-color: $primary-red;
+
+      }
+    }
+  }
+}
+
+
+
+// --- 3. PRINCIPLES SECTION (MỚI: CÁC NGUYÊN TẮC) ---
+.principlesSection {
+  padding: 100px 0;
+  background-color: #1a1a1a; // Nền tối nghiêm túc
+  color: #fff;
+}
+
+.principlesHeader {
+  text-align: center;
+  margin-bottom: 60px;
+
+  h2 {
+    font-size: 2.5rem;
+    font-weight: 800;
+    margin-bottom: 10px;
+    color: #fff;
+  }
+
+  p {
+    color: #d4d4d4;
+    font-size: 1.1rem;
+  }
+}
+
+.principlesGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); // 2 Cột
+  gap: 30px;
+
+  @include mobile {
+    grid-template-columns: 1fr;
+  }
+}
+
+.principleItem {
+  background: rgba(255, 255, 255, 0.05);
+  border-left: 4px solid $primary-red; // Vạch đỏ cảnh báo
+  padding: 25px;
+  border-radius: 0 8px 8px 0;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  transition: all 0.3s;
+
+  .pIcon {
+    color: $primary-red;
+    min-width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(230, 0, 0, 0.1);
+    border-radius: 50%;
+  }
+
+  p {
+    font-size: 1.1rem;
+    font-weight: 500;
+    line-height: 1.5;
+    margin: 0;
+    color: #e0e0e0;
+    strong {
+      color: #fff;
+    }
+
+    span {
+      color: #aaa;
+      font-size: 0.95rem;
+      display: block;
+      margin-top: 5px;
+    }
+  }
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateX(10px);
+  }
+}
